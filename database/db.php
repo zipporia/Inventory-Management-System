@@ -6,7 +6,6 @@
             include_once("constants.php");
             $this->conn = new Mysqli(HOST,USER,PASS,DB);
             if($this->conn){
-                echo "connected";
                 return $this->conn;
             }
             return "DATABASE_CONNECTION_FAIL";
