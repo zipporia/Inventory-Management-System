@@ -1,7 +1,6 @@
 <!-- Navbar-->
 <?php include_once 'templates/header.php'?>
-    <br><br>
-
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -44,9 +43,9 @@
             <div class="col-md-4">
                 <div class="card" style="margin:auto;width: 18rem;" >
                     <div class="card-body">
-                        <h4 class="card-title">Manage Categories</h4>
+                        <h4 class="card-title">Categories</h4>
                         <p class="card-text">Here you can manage your categories</p>
-                        <a href="#" class="btn btn-primary">Add</a>
+                        <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#categoryModal">Add</a>
                         <a href="#" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
@@ -54,9 +53,9 @@
             <div class="col-md-4">
             <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Manage Categories</h4>
+                        <h4 class="card-title">Brands</h4>
                         <p class="card-text">Here you can manage your categories and you can add new parent and sub categories</p>
-                        <a href="#" class="btn btn-primary">Add</a>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#brandModal">Add</a>
                         <a href="#" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
@@ -64,9 +63,9 @@
             <div class="col-md-4">
                 <div class="card" >
                     <div class="card-body">
-                        <h4 class="card-title">Manage Categories</h4>
+                        <h4 class="card-title">Product</h4>
                         <p class="card-text">Here you can manage your categories and you can add new parent and sub categories</p>
-                        <a href="#" class="btn btn-primary">Add</a>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#productModal">Add</a>
                         <a href="#" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
@@ -74,4 +73,7 @@
         </div>
     </div>
 
+<?php include_once 'templates/categoryModal.php'?>
+<?php include_once 'templates/brandModal.php'?>
+<?php include_once 'templates/productModal.php'?> // category modal
 <?php include_once 'templates/footer.php'?>
