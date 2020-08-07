@@ -43,6 +43,15 @@
                 }
             }
         }
+
+        public function userLogin($email, $password){
+            $pre_stmt = $this->conn->prepare("SELECT user_id, user_name, user_pwd, 	last_login FROM users WHERE user_email = ?");
+            $pre_stmt->bind_param("s", $email);
+            $pre_stmt->execute() or die($this->conn->error);
+            $result = $pre_stmt->get_result();
+
+            
+        }
     }
 
 $user = new User();
