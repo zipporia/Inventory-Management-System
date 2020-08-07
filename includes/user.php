@@ -50,10 +50,33 @@
             $pre_stmt->execute() or die($this->conn->error);
             $result = $pre_stmt->get_result();
 
-            
+            if($result->num_rows < 1){
+                return "NOT_REGISTERD";
+            }else{
+                $row = $result->fetch_assoc();
+                if(password_verify($password,$row["user_pwd"])){
+                    $_SESSION["userid"] = $row["user_id"];
+                    $_SESSION["username"] = $row["user_name"];
+                    $_SESSION["last_login"] = $row["last_login"];
+
+                    $las_login = date("Y-m-d H:i:s");
+                    $pre_stmt = $this->conn->prepare("UPDATE users SET last_login = ? WHERE user_email = ?");
+                    $pre_stmt->bind_param("ss",$las_login,$email);
+                    $result = $pre_stmt->execute() or die($this->conn->error);
+                    if($result){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }else{
+                    return "PASSWORD NOT MATCHED";
+                }
+            }
         }
     }
 
 $user = new User();
 echo $user->createUserAccount("Mark", "mark@gmail.com", "123", "Admin");
+
+echo $user->userLogin("mark@gmail.com", "123");
 
