@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var DOMAIN = "http://localhost/Inventory-Management-System/";
     $("#registerForm").on("submit", function(){
         var status = false;
         var name = $("#username");
@@ -54,8 +55,15 @@ $(document).ready(function(){
             $("#t_error").html("");
             status = true;
         }
-        if(password.val() == rePassword.val()){
-            
+        if((password.val() == rePassword.val()) && status == true){
+            $.ajax({
+                url : DOMAIN+"/includes/process.php",
+                method: "POST",
+                data: $("#registerForm").serialize(),
+                success: function(data){
+                    alert(data);
+                }
+            });
         }else{
             rePassword.addClass("border-danger");
             $("#p2_error").html("<span class='text-danger'>Password is not matched</span>");
