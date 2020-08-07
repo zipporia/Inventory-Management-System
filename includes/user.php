@@ -76,8 +76,8 @@
     }
 
 $user = new User();
-// echo $user->createUserAccount("Mark", "mark@gmail.com", "123", "Admin");
+// echo $user->createUserAccount("Mark1", "mark1@gmail.com", "123", "Admin");
 
-echo $user->userLogin("mark@gmail.com", "123");
+// echo $user->userLogin("mark@gmail.com", "123");
 
 

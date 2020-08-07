@@ -57,11 +57,17 @@ $(document).ready(function(){
         }
         if((password.val() == rePassword.val()) && status == true){
             $.ajax({
-                url : DOMAIN+"/includes/process.php",
+                url : DOMAIN+"includes/process.php",
                 method: "POST",
                 data: $("#registerForm").serialize(),
                 success: function(data){
-                    alert(data);
+                    if(data == "EMAIL_ALREADY_EXISTS"){
+                        alert("It seems like you email is already used");
+                    }else if(data == "SOME_ERROR"){
+                        alert("Something Wrong");
+                    }else{
+                        window.location.href = encodeURI(DOMAIN+"index.php?msg=You are registered Now you can login");
+                    }
                 }
             });
         }else{
