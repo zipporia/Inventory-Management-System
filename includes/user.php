@@ -59,7 +59,7 @@
                     $_SESSION["username"] = $row["user_name"];
                     $_SESSION["last_login"] = $row["last_login"];
 
-                    $las_login = date("Y-m-d H:i:s");
+                    $las_login = date("Y-m-d H:m:s");
                     $pre_stmt = $this->conn->prepare("UPDATE users SET last_login = ? WHERE user_email = ?");
                     $pre_stmt->bind_param("ss",$las_login,$email);
                     $result = $pre_stmt->execute() or die($this->conn->error);
@@ -76,7 +76,8 @@
     }
 
 $user = new User();
-echo $user->createUserAccount("Mark", "mark@gmail.com", "123", "Admin");
+// echo $user->createUserAccount("Mark", "mark@gmail.com", "123", "Admin");
 
 echo $user->userLogin("mark@gmail.com", "123");
+
 
