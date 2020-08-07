@@ -8,5 +8,5 @@ CREATE TABLE users (
    user_type ENUM('', 'Admin', 'Other') NOT NULL,
    register_date DATE NOT NULL,
    last_login DATE NOT NULL,
-   notes VARCHAR(255)
+   notes VARCHAR(255) NOT NULL
  );

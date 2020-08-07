@@ -16,7 +16,7 @@
             $pre_stmt->bind_param("s",$email);
             $pre_stmt->execute() or die($this->conn->error);
             $result = $pre_stmt->get_result();
-            if($result > 0){
+            if($result->num_rows > 0){
                 return 1;
             }else{
                 return 0;
@@ -24,7 +24,27 @@
         }
 
         public function createUserAccount($username, $email, $pass, $usertype){
-            $pre_stmt = $this->conn->prepare("");
+
+            if($this->emailExist($email)){
+                return "EMAIL_ALREADY_EXISTS";
+            }else{
+                $pass_hash = password_hash($pass,PASSWORD_BCRYPT,["cost"=>8]);
+                $date = date("Y-m-d");
+                $notes = "";
+                $pre_stmt = $this->conn->prepare("INSERT INTO users (user_name, user_email, user_pwd, user_type, register_date, last_login, notes) 
+                VALUES (?,?,?,?,?,?,?)");
+                $pre_stmt->bind_param("sssssss",$username, $email, $pass_hash, $usertype, $date, $date, $notes);
+                $result = $pre_stmt->execute() or die($this->conn->error);
+                
+                if($result){
+                    return $this->conn->insert_id;
+                }else{
+                    return "SOME_ERROR";
+                }
+            }
         }
     }
+
+$user = new User();
+echo $user->createUserAccount("Mark", "mark@gmail.com", "123", "Admin");
 
