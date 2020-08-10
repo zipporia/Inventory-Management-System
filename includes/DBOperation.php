@@ -22,7 +22,27 @@ class DBOperation{
             return 0;
         }
     }// function add category
+
+
+    public function getAllRecord($table){
+        $pre_stmt = $this->conn->prepare("SELECT * FROM ".$table);
+        $pre_stmt->execute() or die($this->conn->error);
+        $resutl = $pre_stmt->get_result();
+        $rows = array();
+        if(!empty($result) && $result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $rows[] = $row;
+            }
+            return $rows;
+        }
+        return "NO_DATA";
+    }
+
+
 } // class DBOperation
 
-//  $opr = new DBOperation();
+
+ $opr = new DBOperation();
 //   echo $opr->addCategory(1, "Moblie");
+echo "<pre>";
+print_r($opr->getAllRecord("categories"));
