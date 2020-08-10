@@ -69,7 +69,7 @@
                         return 0;
                     }
                 }else{
-                    return "PASSWORD NOT MATCHED";
+                    return "PASSWORD_NOT_MATCHED";
                 }
             }
         }
