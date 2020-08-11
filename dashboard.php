@@ -1,3 +1,10 @@
+<?php
+    include_once("./database/constants.php");
+    if(!isset($_SESSION['userid'])){
+        header("Location: ".DOMAIN."");
+    }
+?>
+
 <!-- Navbar-->
 <?php include_once 'templates/header.php'?>
     <br>
