@@ -79,7 +79,6 @@ $(document).ready(function(){
 
     // For login part
     $("#form_login").on("submit", function(){
-
         var email = $("#log_email");
         var pass = $("#log_pass");
         var status = false;
@@ -103,20 +102,24 @@ $(document).ready(function(){
             status = true;
         }
         if(status && !email.val() == ""){
+            $(".overlay").show();
             $.ajax({
                 url : DOMAIN+"includes/process.php",
                 method: "POST",
                 data: $("#form_login").serialize(),
                 success: function(data){
                     if(data == "NOT_REGISTERD"){
+                        $(".overlay").hide();
                         email.addClass("border-danger");
                         $("#e_error").html("<span class='text-danger'>You are not registered</span>");
            
                     }else if(data == "PASSWORD_NOT_MATCHED"){
+                        $(".overlay").hide();
                         pass.addClass("border-danger");
                         $("#p_error").html("<span class='text-danger'>Password not matched</span>");
                         status = false;
                     }else{
+                        $(".overlay").hide();
                         console.log(data);
                         window.location.href = DOMAIN+"dashboard.php";
                     }
