@@ -56,16 +56,20 @@ $(document).ready(function(){
             status = true;
         }
         if((password.val() == rePassword.val()) && status == true){
+            $(".overlay").show();
             $.ajax({
                 url : DOMAIN+"includes/process.php",
                 method: "POST",
                 data: $("#registerForm").serialize(),
                 success: function(data){
                     if(data == "EMAIL_ALREADY_EXISTS"){
+                        $(".overlay").hide();
                         alert("It seems like you email is already used");
                     }else if(data == "SOME_ERROR"){
+                        $(".overlay").hide();
                         alert("Something Wrong");
                     }else{
+                        $(".overlay").hide();
                         window.location.href = encodeURI(DOMAIN+"index.php?msg=You are registered Now you can login");
                     }
                 }

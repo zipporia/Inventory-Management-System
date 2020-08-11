@@ -11,7 +11,7 @@
                         <p class="card-text"><i class="fa fa-user-o"></i> Mark Cornelio</p>
                         <p class="card-text"><i class="fa fa-user"></i> Admin</p>
                         <p class="card-text"><i class="fa fa-clock-o"></i> Last Login : xxxx</p>
-                        <a href="#" class="btn btn-primary" style="background-color: #002db3;"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
+                        <a href="#" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
                     </div>
                 </div> 
             </div>  

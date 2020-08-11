@@ -1,7 +1,15 @@
+<?php
+    include_once("./database/constants.php");
+    if(isset($_SESSION['userid'])){
+        header("location: ".DOMAIN."dashboard.php");
+    }
+?>
+
 <!-- Navbar-->
 <?php include_once 'templates/header.php'?>
 
 <div class="overlay"><div class="loader"></div></div>
+
 <br>
     <div class="container">
         <?php

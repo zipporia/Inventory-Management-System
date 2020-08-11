@@ -1,5 +1,8 @@
 <!-- Navbar-->
 <?php include_once 'templates/header.php'?>
+
+<div class="overlay"><div class="loader"></div></div>
+
 <br>
     <div class="container">
         <div class="card mx-auto" style="width: 30rem;">
