@@ -9,19 +9,22 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="form_category" onsubmit="return false">
+
+            <form id="form_category" onsubmit="return false">
                 <div class="form-group">
-                    <label>Category</label>
+                    <label>Category Name</label>
                     <input type="text" class="form-control" id="category_name" name="category_name" aria-describedby="emailHelp">
                     <small id="cat_error" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
                     <label for="paretn_cat">Parent Category</label>
                     <select class="form-control" name="paretn_cat" id="paretn_cat">
-                        <option value="0">Root</option>
+                        
                     </select>
                 </div>
+                
             </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

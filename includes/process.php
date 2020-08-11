@@ -22,7 +22,7 @@ if(isset($_POST['log_email']) AND isset($_POST['log_pass'])){
 
 if(isset($_POST['getCategory'])){
     $obj = new DBOperation();
-    $row = $obj->getAllRecord('categories');
+    $rows = $obj->getAllRecord('categories');
     foreach($rows as $row){
         echo "<option vlaue='".$row["paretn_cat"]."'>".$row["category_name"]."</option>";
     }

@@ -134,7 +134,8 @@ $(document).ready(function(){
             method : "POST",
             data: {getCategory: 1},
             success: function(data){
-                alert(data);
+                var root = "<option value='0'>Root</optoin>";
+                $("#paretn_cat").html(root+data);
             }
         });
     }
