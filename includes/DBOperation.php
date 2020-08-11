@@ -27,9 +27,9 @@ class DBOperation{
     public function getAllRecord($table){
         $pre_stmt = $this->conn->prepare("SELECT * FROM ".$table);
         $pre_stmt->execute() or die($this->conn->error);
-        $resutl = $pre_stmt->get_result();
-        $rows = array();
-        if(!empty($result) && $result->num_rows > 0){
+        $result = $pre_stmt->get_result();
+        $rows = [];
+        if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 $rows[] = $row;
             }
@@ -38,11 +38,11 @@ class DBOperation{
         return "NO_DATA";
     }
 
-
 } // class DBOperation
 
+// $opr = new DBOperation();
+//  // echo $opr->addCategory(0, "Tshirt");
+// echo "<pre>";
+// print_r($opr->getAllRecord("categories"));
 
- $opr = new DBOperation();
-//   echo $opr->addCategory(1, "Moblie");
-echo "<pre>";
-print_r($opr->getAllRecord("categories"));
+

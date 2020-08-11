@@ -13,7 +13,7 @@ CREATE TABLE users (
 
  CREATE TABLE categories(
    cid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-   paretn_cat int(11) NOT NULL,
+   parent_cat int(11) NOT NULL,
    category_name VARCHAR(255) UNIQUE NOT NULL,
    status ENUM('1','0') NOT NULL
  );

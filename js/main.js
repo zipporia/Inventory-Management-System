@@ -75,7 +75,7 @@ $(document).ready(function(){
             $("#p2_error").html("<span class='text-danger'>Password is not matched</span>");
             status = false;
         }
-    });
+    }); // Form Register
 
     // For login part
     $("#form_login").on("submit", function(){
@@ -124,5 +124,20 @@ $(document).ready(function(){
             });
         }
        
-    });
+    }); // form login
+
+    // Fetch category
+    fetch_category();
+    function fetch_category(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method : "POST",
+            data: {getCategory: 1},
+            success: function(data){
+                alert(data);
+            }
+        });
+    }
+
+
 });
