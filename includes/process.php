@@ -34,4 +34,5 @@ if(isset($_POST['category_name']) AND isset($_POST['parent_cat'])){
     $obj = new DBOperation();
     $result =$obj->addCategory($_POST['parent_cat'], $_POST['category_name']);
     echo $result;
+    exit();
 }
