@@ -160,6 +160,7 @@ $(document).ready(function(){
                     if(data == "CATEGORY_ADDED"){
                         $("#category_name").removeClass("border-danger");
                         $("#cat_error").html("<span class='text-success'>Category Successfully Added</span>");
+                        $("#category_name").val("");
                     }else{
                         alert(data);
                     }
