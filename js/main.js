@@ -157,7 +157,12 @@ $(document).ready(function(){
                 method: "POST",
                 data: $("#category_form").serialize(),
                 success: function(data){
-                    
+                    if(data == "CATEGORY_ADDED"){
+                        $("#category_name").removeClass("border-danger");
+                        $("#cat_error").html("<span class='text-success'>Category Successfully Added</span>");
+                    }else{
+                        alert(data);
+                    }
                 }
             });
         }
