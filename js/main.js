@@ -142,7 +142,7 @@ $(document).ready(function(){
             data: {getCategory: 1},
             success: function(data){
                 var root = "<option value='0'>Root</optoin>";
-                $("#paretn_cat").html(root+data);
+                $("#parent_cat").html(root+data);
             }
         });
     }

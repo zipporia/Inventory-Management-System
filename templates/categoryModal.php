@@ -17,8 +17,8 @@
                     <small id="cat_error" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <label for="paretn_cat">Parent Category</label>
-                    <select class="form-control" name="paretn_cat" id="paretn_cat">
+                    <label for="parent_cat">Parent Category</label>
+                    <select class="form-control" name="parent_cat" id="parent_cat">
                         
                     </select>
                 </div>

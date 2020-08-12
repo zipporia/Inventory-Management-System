@@ -11,7 +11,7 @@ class DBOperation{
     }
 
     public function addCategory($parent, $cat){
-        $pre_stmt = $this->conn->prepare("INSERT INTO `categories`(`paretn_cat`, `category_name`, `status`) 
+        $pre_stmt = $this->conn->prepare("INSERT INTO `categories`(`parent_cat`, `category_name`, `status`) 
         VALUES (?,?,?)");
         $status = 1;
         $pre_stmt->bind_param("isi", $parent, $cat, $status);
@@ -41,7 +41,7 @@ class DBOperation{
 } // class DBOperation
 
 // $opr = new DBOperation();
-//  // echo $opr->addCategory(0, "Tshirt");
+// echo $opr->addCategory(0, "Electronics");
 // echo "<pre>";
 // print_r($opr->getAllRecord("categories"));
 

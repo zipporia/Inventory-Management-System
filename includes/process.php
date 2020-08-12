@@ -24,7 +24,14 @@ if(isset($_POST['getCategory'])){
     $obj = new DBOperation();
     $rows = $obj->getAllRecord('categories');
     foreach($rows as $row){
-        echo "<option vlaue='".$row["paretn_cat"]."'>".$row["category_name"]."</option>";
+        echo "<option vlaue='".$row["cid"]."'>".$row["category_name"]."</option>";
     }
     exit();
+}
+
+// Add Category
+if(isset($_POST['category_name']) AND isset($_POST['parent_cat'])){
+    $obj = new DBOperation();
+    $result =$obj->addCategory($_POST['parent_cat'], $_POST['category_name']);
+    echo $result;
 }
