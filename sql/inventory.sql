@@ -23,3 +23,16 @@ CREATE TABLE users (
    brand_name VARCHAR(255) UNIQUE NOT NULL,
    status ENUM('1', '0') NOT NULL
  );
+
+ CREATE TABLE products(
+   pid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+   cid int(11) NOT NULL,
+   bid int(11) NOT NULL,
+   product_name VARCHAR(255) UNIQUE NOT NULL,
+   product_price VARCHAR(255) NOT NULL,
+   product_stock VARCHAR(255) NOT NULL,
+   added_date DATE NOT NULL,
+   p_status ENUM('1', '0') NOT NULL,
+   FOREIGN KEY(cid) REFERENCES categories(cid),
+   FOREIGN KEY(bid) REFERENCES brands(bid)
+ );
