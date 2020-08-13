@@ -36,3 +36,6 @@ if(isset($_POST['category_name']) AND isset($_POST['parent_cat'])){
     echo $result;
     exit();
 }
+
+// Add Brand
+

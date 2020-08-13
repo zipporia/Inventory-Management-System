@@ -11,7 +11,7 @@ class DBOperation{
     }
 
     public function addCategory($parent, $cat){
-        $pre_stmt = $this->conn->prepare("INSERT INTO `categories`(`parent_cat`, `category_name`, `status`) 
+        $pre_stmt = $this->conn->prepare("INSERT INTO `categories`(`parent_cat`, `category_name`, `status`)
         VALUES (?,?,?)");
         $status = 1;
         $pre_stmt->bind_param("isi", $parent, $cat, $status);
@@ -22,6 +22,19 @@ class DBOperation{
             return 0;
         }
     }// function add category
+
+    public function addBrand($brand_name){
+        $pre_stmt = $this->conn->prepare("INSERT INTO brands(brand_name, status)
+        VALUES (?,?)");
+        $status = 1;
+        $pre_stmt->bind_param("si", $brand_name, $status);
+        $result = $pre_stmt->execute() or die($this->conn->error);
+        if($result){
+            return "BRAND_ADDED";
+        }else{
+            return 0;
+        }
+    }
 
 
     public function getAllRecord($table){
