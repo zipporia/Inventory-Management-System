@@ -168,4 +168,14 @@ $(document).ready(function(){
             });
         }
     });
+
+    $("#brand_form").on("submit", function(){
+        if($("#brand_name").val() == ""){
+            $("#brand_name").addClass("border-danger");
+            $("#brand_error").html("<span class='text-danger'>Please Enter Brand Name</span>");
+        }else{
+            
+           
+        }
+    })
 });

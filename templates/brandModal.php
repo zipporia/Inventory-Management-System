@@ -9,15 +9,17 @@
                 </button>
             </div>
             <div class="modal-body">
+
                 <form id="brand_form" onsubmit="return false">
                     <div class="form-group">
                         <label>Brand Name</label>
                         <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter Brand Name">
-                        <small id="cat_error" class="form-text text-muted"></small>
+                        <small id="brand_error" class="form-text text-muted"></small>
                     </div>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </form>
+
             </div>
             <div class="modal-footer">
                 

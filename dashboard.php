@@ -82,5 +82,5 @@
 
 <?php include_once 'templates/categoryModal.php'?>
 <?php include_once 'templates/brandModal.php'?>
-<?php include_once 'templates/productModal.php'?> // category modal
+<?php include_once 'templates/productModal.php'?>
 <?php include_once 'templates/footer.php'?>

@@ -41,7 +41,7 @@ class DBOperation{
 } // class DBOperation
 
 // $opr = new DBOperation();
-// echo $opr->addCategory(0, "Electronics");
+// echo $opr->addCategory(0, "Mobile");
 // echo "<pre>";
 // print_r($opr->getAllRecord("categories"));
 
