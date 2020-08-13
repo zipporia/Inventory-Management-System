@@ -17,3 +17,9 @@ CREATE TABLE users (
    category_name VARCHAR(255) UNIQUE NOT NULL,
    status ENUM('1','0') NOT NULL
  );
+
+ CREATE TABLE brands(
+   bid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+   brand_name VARCHAR(255) UNIQUE NOT NULL,
+   status ENUM('1', '0') NOT NULL
+ );

@@ -174,7 +174,14 @@ $(document).ready(function(){
             $("#brand_name").addClass("border-danger");
             $("#brand_error").html("<span class='text-danger'>Please Enter Brand Name</span>");
         }else{
-            
+            $.ajax({
+                url: DOMAIN+"/includes/process.php",
+                method: "POST",
+                data: $("#brand_form").serialize(),
+                success: function(data){
+                    
+                }
+            });
            
         }
     })
