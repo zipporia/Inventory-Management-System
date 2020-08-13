@@ -179,9 +179,14 @@ $(document).ready(function(){
                 method: "POST",
                 data: $("#brand_form").serialize(),
                 success: function(data){
-                    $("#brand_name").removeClass("border-danger");
-                    $("#brand_error").html("<span class='text-success'>Brand Successfully Added</span>");
-                        
+                    if(data == "BRAND_ADDED"){
+                        $("#brand_name").removeClass("border-danger");
+                        $("#brand_error").html("<span class='text-success'>Brand Successfully Added</span>");
+                        $("#brand_name").val("");
+                    }else{
+                        alert(data);
+                    }
+                    
                 }
             });
            

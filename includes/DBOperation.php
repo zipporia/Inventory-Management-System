@@ -24,7 +24,7 @@ class DBOperation{
     }// function add category
 
     public function addBrand($brand_name){
-        $pre_stmt = $this->conn->prepare("INSERT INTO brands(brand_name, status)
+        $pre_stmt = $this->conn->prepare("INSERT INTO `brands`(`brand_name`, `status`)
         VALUES (?,?)");
         $status = 1;
         $pre_stmt->bind_param("si", $brand_name, $status);
@@ -54,7 +54,7 @@ class DBOperation{
 } // class DBOperation
 
 // $opr = new DBOperation();
-// echo $opr->addCategory(0, "Mobile");
+// echo $opr->addBrand("Mobile");
 // echo "<pre>";
 // print_r($opr->getAllRecord("categories"));
 
