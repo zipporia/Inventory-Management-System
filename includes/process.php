@@ -20,6 +20,7 @@ if(isset($_POST['log_email']) AND isset($_POST['log_pass'])){
     exit();
 }
 
+// get Category
 if(isset($_POST['getCategory'])){
     $obj = new DBOperation();
     $rows = $obj->getAllRecord('categories');
@@ -28,6 +29,17 @@ if(isset($_POST['getCategory'])){
     }
     exit();
 }
+
+// get Brand
+if(isset($_POST['getBrand'])){
+    $obj = new DBOperation();
+    $rows = $obj->getAllRecord('brands');
+    foreach($rows as $row){
+        echo "<option vlaue='".$row["bid"]."'>".$row["brand_name"]."</option>";
+    }
+    exit();
+}
+
 
 // Add Category
 if(isset($_POST['category_name']) AND isset($_POST['parent_cat'])){
@@ -38,10 +50,23 @@ if(isset($_POST['category_name']) AND isset($_POST['parent_cat'])){
 }
 
 // Add Brand
-
 if(isset($_POST['brand_name'])){
     $obj = new DBOperation();
     $result = $obj->addBrand($_POST['brand_name']);
+    echo $result;
+    exit();
+}
+
+// Add Product
+if(isset($_POST['added_date']) AND isset($_POST['product_name'])){
+    $obj = new DBOperation();
+    $result = $obj->addProduct( $_POST['select_cat'], 
+                                $_POST['select_brand'], 
+                                $_POST['product_name'], 
+                                $_POST['product_price'], 
+                                $_POST['product_qty'], 
+                                $_POST['added_date']
+                            );
     echo $result;
     exit();
 }

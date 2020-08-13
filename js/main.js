@@ -141,11 +141,27 @@ $(document).ready(function(){
             method : "POST",
             data: {getCategory: 1},
             success: function(data){
-                var root = "<option value='0'>Root</optoin>";
+                var root = "<option value='0'> SELECT </option>";
+                var choose = "<option value=''> Select Category </option>";
                 $("#parent_cat").html(root+data);
+                $("#select_cat").html(choose+data);
             }
         });
-    }
+    } // fetch category
+
+    // Fetch brand
+    fetch_brand();
+    function fetch_brand(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method : "POST",
+            data: {getBrand: 1},
+            success: function(data){
+                var choose = "<option value=''> Select Brand </option>";
+                $("#select_brand").html(choose+data);
+            }
+        });
+    } // fetch brand
 
     $("#category_form").on("submit", function(){
         if($("#category_name").val() == ""){
@@ -167,7 +183,7 @@ $(document).ready(function(){
                 }
             });
         }
-    });
+    }); // category form
 
     $("#brand_form").on("submit", function(){
         if($("#brand_name").val() == ""){
@@ -186,10 +202,27 @@ $(document).ready(function(){
                     }else{
                         alert(data);
                     }
-                    
+                } // success
+            }); // ajax
+        } 
+    }); //  brand form
+
+
+    $("#product_form").on("submit", function(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method: "POST",
+            data: $("#product_form").serialize(),
+            success: function(data){
+                if(data == "NEW_PRODUCT_ADDED"){
+                    alert(data);
+                }else{
+                    console.log(data);
+                    alert(data);
                 }
-            });
-           
-        }
-    })
-});
+            } // success
+        });
+    });
+
+
+}); // document ready function
