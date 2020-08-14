@@ -15,30 +15,36 @@ function pagination($conn, $table, $pno, $n){
         if($pageno > 1){
             $previous = "";
             $previous = $pageno - 1;
-            $pagination .= "<a href='".$previous."' style='text-decoration:none;color:black;'> Previous </a>";
+            $pagination .= "<a href='pagination.php?pageno=".$previous."' style='text-decoration:none;color:black;'> Previous </a>";
         }
         for($i = $pageno - 5; $i < $pageno; $i++){
             if($i > 0){
-                $pagination .= "<a href='".$i."' style='text-decoration:none;'> ".$i." </a>" ;
+                $pagination .= "<a href='pagination.php?pageno=".$i."' style='text-decoration:none;'> ".$i." </a>" ;
             }
             
         }
 
-        $pagination .= "<a href='".$pageno."' style='text-decoration:none;color:red'> $pageno </a>";
+        $pagination .= "<a href='pagination.php?pageno=".$pageno."' style='text-decoration:none;color:black'> $pageno </a>";
 
         for($i=$pageno + 1; $i <= $last; $i++){
-            $pagination .= "<a href='".$i."'> ".$i." </a>";
-            if($i > $pageno + 5){
+            $pagination .= "<a href='pagination.php?pageno=".$i."' style='text-decoration:none;'> ".$i." </a>";
+            if($i > $pageno + 4){
                 break;
             }
         }
         if($last > $pageno){
             $next = $pageno + 1;
-            $pagination .= "<a href='".$next."' style='text-decoration:none;color:black;'> Next </a>";
+            $pagination .= "<a href='pagination.php?pageno=".$next."' style='text-decoration:none;color:black;'> Next </a>";
         }
     }
 
-    return $pagination;
+    $limit = "LIMIT ".($pageno - 1) * $numberofRecordsPerPage.";".$numberofRecordsPerPage;
+
+    return ["pagination"=>$pagination, "limit"=>$limit];
 }
 
-echo pagination($conn, "xxx", 3, 10);
+if(isset($_GET['pageno'])){
+    $pageno = $_GET['pageno'];
+    echo "<pre>";
+    print_r(pagination($conn, "xxx", $pageno, 10));
+}
