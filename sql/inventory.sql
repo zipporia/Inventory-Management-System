@@ -30,7 +30,7 @@ CREATE TABLE users (
    pbid int(11) NOT NULL,
    product_name VARCHAR(255) NOT NULL,
    product_price DOUBLE NOT NULL,
-   product_stock INT NOT NULL,
+   product_stock INT(11) NOT NULL,
    added_date DATE NOT NULL,
    p_status ENUM('1', '0') NOT NULL,
    PRIMARY KEY(pid),

@@ -25,7 +25,7 @@ if(isset($_POST['getCategory'])){
     $obj = new DBOperation();
     $rows = $obj->getAllRecord('categories');
     foreach($rows as $row){
-        echo "<option vlaue='".$row["cid"]."'>".$row["category_name"]."</option>";
+        echo "<option value='".$row["cid"]."'>".$row["category_name"]."</option>";
     }
     exit();
 }
@@ -35,7 +35,7 @@ if(isset($_POST['getBrand'])){
     $obj = new DBOperation();
     $rows = $obj->getAllRecord('brands');
     foreach($rows as $row){
-        echo "<option vlaue='".$row["bid"]."'>".$row["brand_name"]."</option>";
+        echo "<option value='".$row["bid"]."'>".$row["brand_name"]."</option>";
     }
     exit();
 }
