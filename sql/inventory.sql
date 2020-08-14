@@ -38,3 +38,12 @@ CREATE TABLE users (
    FOREIGN KEY(pcid) REFERENCES categories(cid),
    FOREIGN KEY(pbid) REFERENCES brands(bid)
  );
+
+
+ SELECT 
+ p.category_name as Category, 
+ c.category_name as Parent, 
+ p.status 
+ FROM categories p 
+ LEFT JOIN categories c 
+ ON p.parent_cat=c.cid

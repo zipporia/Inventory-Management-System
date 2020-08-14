@@ -10,7 +10,11 @@ class Manage
         $this->conn = $db->connect();
     }
 
-    function pagination($conn, $table, $pno, $n){
+    public function manageRecordWithPagination($table, $pno){
+        
+    }
+
+    private function pagination($conn, $table, $pno, $n){
         $query = $conn->query("SELECT COUNT(*) as rows FROM".$table);
         $row = mysqli_fetch_assoc($query);
         // $totalRecords = 100000;
