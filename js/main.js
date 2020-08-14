@@ -177,6 +177,7 @@ $(document).ready(function(){
                         $("#category_name").removeClass("border-danger");
                         $("#cat_error").html("<span class='text-success'>Category Successfully Added</span>");
                         $("#category_name").val("");
+                        fetch_category();
                     }else{
                         alert(data);
                     }
@@ -199,6 +200,7 @@ $(document).ready(function(){
                         $("#brand_name").removeClass("border-danger");
                         $("#brand_error").html("<span class='text-success'>Brand Successfully Added</span>");
                         $("#brand_name").val("");
+                        fetch_brand();
                     }else{
                         alert(data);
                     }
@@ -215,7 +217,8 @@ $(document).ready(function(){
             data: $("#product_form").serialize(),
             success: function(data){
                 if(data == "NEW_PRODUCT_ADDED"){
-                    alert(data);
+                    alert("Successfully added");
+                    $("#select_cat").val("");
                 }else{
                     console.log(data);
                     alert(data);
