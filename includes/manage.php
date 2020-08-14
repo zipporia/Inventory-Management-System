@@ -11,11 +11,15 @@ class Manage
     }
 
     function pagination($conn, $table, $pno, $n){
-        $totalRecords = 100000;
+        $query = $conn->query("SELECT COUNT(*) as rows FROM".$table);
+        $row = mysqli_fetch_assoc($query);
+        // $totalRecords = 100000;
         $pageno = $pno;
         $numberofRecordsPerPage = $n;
     
-        $last = ceil($totalRecords/$numberofRecordsPerPage);
+        $last = ceil($row["rows"]/$numberofRecordsPerPage);
+
+        echo "Total Pages ".$last."<br/>";
     
         $pagination = "";
     
