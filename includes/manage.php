@@ -40,8 +40,7 @@ class Manage
         $numberofRecordsPerPage = $n;
            
         $last = ceil($row["row"]/$numberofRecordsPerPage);
-         echo("<script>console.log('PHP: " . $table  ." $pageno');</script>");
-        echo "Total Pages ".$last."<br/>";
+        //  echo("<script>console.log('PHP: " . $table  ." $pageno');</script>");
     
         $pagination = "";
     
@@ -49,26 +48,26 @@ class Manage
             if($pageno > 1){
                 $previous = "";
                 $previous = $pageno - 1;
-                $pagination .= "<a href='pagination.php?pageno=".$previous."' style='text-decoration:none;color:black;'> Previous </a>";
+                $pagination .= "<a href='".$previous."' style='text-decoration:none;color:black;'> Previous </a>";
             }
             for($i = $pageno - 5; $i < $pageno; $i++){
                 if($i > 0){
-                    $pagination .= "<a href='pagination.php?pageno=".$i."' style='text-decoration:none;'> ".$i." </a>" ;
+                    $pagination .= "<a href='".$i."' style='text-decoration:none;'> ".$i." </a>" ;
                 }
                 
             }
     
-            $pagination .= "<a href='pagination.php?pageno=".$pageno."' style='text-decoration:none;color:black'> $pageno </a>";
+            $pagination .= "<a href='".$pageno."' style='text-decoration:none;color:black'> $pageno </a>";
     
             for($i=$pageno + 1; $i <= $last; $i++){
-                $pagination .= "<a href='pagination.php?pageno=".$i."' style='text-decoration:none;'> ".$i." </a>";
+                $pagination .= "<a href='".$i."' style='text-decoration:none;'> ".$i." </a>";
                 if($i > $pageno + 4){
                     break;
                 }
             }
             if($last > $pageno){
                 $next = $pageno + 1;
-                $pagination .= "<a href='pagination.php?pageno=".$next."' style='text-decoration:none;color:black;'> Next </a>";
+                $pagination .= "<a href='".$next."' style='text-decoration:none;color:black;'> Next </a>";
             }
         }
     
