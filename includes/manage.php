@@ -12,7 +12,7 @@ class Manage
 
     public function manageRecordWithPagination($table, $pno){
         $a = $this->pagination($this->conn, $table, $pno, 3);
-        
+        echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
         if($table == "categories"){
             $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ";
         }
@@ -30,17 +30,17 @@ class Manage
     }
 
     private function pagination($conn, $table, $pno, $n){
-
-        $query = $conn->query("SELECT COUNT(*) as rows FROM " .$table);
+        
+        $query = $conn->query("SELECT COUNT(*) as row FROM " .$table);
         
         $row = mysqli_fetch_assoc($query);
         
         // $totalRecords = 100000;
         $pageno = $pno;
         $numberofRecordsPerPage = $n;
-   
-        $last = ceil($row["rows"]/$numberofRecordsPerPage);
-        
+           
+        $last = ceil($row["row"]/$numberofRecordsPerPage);
+         echo("<script>console.log('PHP: " . $table  ." $pageno');</script>");
         echo "Total Pages ".$last."<br/>";
     
         $pagination = "";
