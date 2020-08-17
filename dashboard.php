@@ -53,7 +53,7 @@
                         <h4 class="card-title">Categories</h4>
                         <p class="card-text">Here you can manage your categories</p>
                         <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#categoryModal">Add</a>
-                        <a href="#" class="btn btn-primary">Manage</a>
+                        <a href="manage_categories.php" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
             </div>
