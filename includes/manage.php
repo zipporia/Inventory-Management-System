@@ -11,18 +11,36 @@ class Manage
     }
 
     public function manageRecordWithPagination($table, $pno){
+        $a = $this->pagination($this->conn, $table, $pno, 3);
         
+        if($table == "categories"){
+            $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ";
+        }
+        
+        $result = $this->conn->query($sql) or die($this->conn->error);
+        
+        $rows = array();
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $rows[] = $row;
+            }
+        } 
+        
+        return ["rows"=>$rows, "pagination"=>$a["pagination"]];
     }
 
     private function pagination($conn, $table, $pno, $n){
-        $query = $conn->query("SELECT COUNT(*) as rows FROM".$table);
+
+        $query = $conn->query("SELECT COUNT(*) as rows FROM " .$table);
+        
         $row = mysqli_fetch_assoc($query);
+        
         // $totalRecords = 100000;
         $pageno = $pno;
         $numberofRecordsPerPage = $n;
-    
+   
         $last = ceil($row["rows"]/$numberofRecordsPerPage);
-
+        
         echo "Total Pages ".$last."<br/>";
     
         $pagination = "";
@@ -60,3 +78,7 @@ class Manage
     }
 
 }
+
+$obj = new Manage();
+echo "<pre>";
+print_r($obj->manageRecordWithPagination("categories", 1));

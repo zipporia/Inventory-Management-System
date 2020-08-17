@@ -41,8 +41,8 @@ CREATE TABLE users (
 
 
  SELECT 
- p.category_name as Category, 
- c.category_name as Parent, 
+ p.category_name as Parent, 
+ c.category_name as Child, 
  p.status 
  FROM categories p 
  LEFT JOIN categories c 

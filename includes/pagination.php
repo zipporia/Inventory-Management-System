@@ -3,11 +3,13 @@
 $conn = mysqli_connect("localhost", "root", "", "test");
 
 function pagination($conn, $table, $pno, $n){
-    $totalRecords = 100000;
+    $query = $conn->query("SELECT COUNT(*) as rows FROM ".$table);
+    $row = mysqli_fetch_assoc($query);
+    // $totalRecords = 100000;
     $pageno = $pno;
     $numberofRecordsPerPage = $n;
 
-    $last = ceil($totalRecords/$numberofRecordsPerPage);
+    $last = ceil($row["rows"]/$numberofRecordsPerPage);
 
     $pagination = "";
 
@@ -45,6 +47,11 @@ function pagination($conn, $table, $pno, $n){
 
 if(isset($_GET['pageno'])){
     $pageno = $_GET['pageno'];
-    echo "<pre>";
-    print_r(pagination($conn, "xxx", $pageno, 10));
+
+    $table = "paragraph";
+
+    $array = pagination($conn, $table, $pageno, 10);
+
+    $sql = "SELECT * FROM ". $table." ".$array["limit"];
+    
 }
