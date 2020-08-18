@@ -72,3 +72,34 @@ if(isset($_POST['added_date']) AND isset($_POST['product_name'])){
     exit();
 }
 
+// Manage Category
+if(isset($_POST["manageCategory"])){
+    $m = new Manage();
+    $result = $m->manageRecordWithPagination("categories", 1);
+    
+    $rows = $result["rows"];
+    
+    $pagination = $result["pagination"];
+    // echo("<script>console.log('PHP: " . $pagination . "');</script>");
+    if(count($rows) > 0){
+        $n = 0;
+        foreach($rows as $row){
+            ?>
+                <tr>
+                    <td><?php echo ++$n ?></td>
+                    <td><?php echo $row["Category"] ?></td>
+                    <td><?php echo $row["Parent"] ?></td>
+                    <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
+                    <td>
+                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="#" class="btn btn-info btn-sm">Edit</a>
+                    </td>
+                </tr>
+            <?php
+        }
+        ?>
+            <tr><td colspan="5"><?php echo $pagination; ?></td></tr>
+        <?php
+        exit();
+    }
+}
