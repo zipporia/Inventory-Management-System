@@ -19,7 +19,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="get_category">
+                <!---
                 <tr>
                     <td>1</td>
                     <td>Electronics</td>
@@ -30,7 +31,7 @@
                         <a href="#" class="btn btn-info btn-sm">Edit</a>
                     </td>
                 </tr>
-                
+                -->
             </tbody>
         </table>
     </div>

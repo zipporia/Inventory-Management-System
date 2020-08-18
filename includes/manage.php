@@ -12,7 +12,7 @@ class Manage
 
     public function manageRecordWithPagination($table, $pno){
         $a = $this->pagination($this->conn, $table, $pno, 3);
-        echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
+        // echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
         if($table == "categories"){
             $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ";
         }
@@ -78,6 +78,6 @@ class Manage
 
 }
 
-$obj = new Manage();
-echo "<pre>";
-print_r($obj->manageRecordWithPagination("categories", 1));
+// $obj = new Manage();
+// echo "<pre>";
+// print_r($obj->manageRecordWithPagination("categories", 1));

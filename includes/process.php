@@ -3,6 +3,7 @@
 include_once('../database/constants.php');
 include_once('user.php');
 include_once('DBOperation.php');
+include_once("manage.php");
 
 // For Registration Processing
 if(isset($_POST["username"]) AND isset($_POST["emailAddress"])){
@@ -70,3 +71,4 @@ if(isset($_POST['added_date']) AND isset($_POST['product_name'])){
     echo $result;
     exit();
 }
+
