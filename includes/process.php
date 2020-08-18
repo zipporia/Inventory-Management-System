@@ -80,13 +80,14 @@ if(isset($_POST["manageCategory"])){
     $rows = $result["rows"];
     
     $pagination = $result["pagination"];
-    // echo("<script>console.log('PHP: " . $pagination . "');</script>");
+    
     if(count($rows) > 0){
-        $n = 0;
+        $n =  (($_POST["pageno"] - 1) * 5) + 1;
+        // echo("<script>console.log('PHP: " . $n . "');</script>");    
         foreach($rows as $row){
             ?>
                 <tr>
-                    <td><?php echo ++$n ?></td>
+                    <td><?php echo $n++ ?></td>
                     <td><?php echo $row["Category"] ?></td>
                     <td><?php echo $row["Parent"] ?></td>
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
