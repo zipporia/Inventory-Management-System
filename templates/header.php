@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <link rel="stylesheet" href="./includes/style.css">
     <script src="js/main.js"></script>
+    <script src="js/manage.js"></script>
 </head>
 <body>   
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #002db3;">

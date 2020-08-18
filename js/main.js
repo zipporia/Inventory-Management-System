@@ -226,19 +226,4 @@ $(document).ready(function(){
             } // success
         });
     });
-
-    manageCategory();
-    function manageCategory(){
-        $.ajax({
-            url: DOMAIN+"/includes/process.php",
-            method: "POST",
-            data: {manageCategory: 1},
-            success: function(data){
-                $("#get_category").html(data);
-                alert(data);
-            } // success
-        });
-    }
-
-
 }); // document ready function
