@@ -42,32 +42,32 @@ class Manage
         $last = ceil($row["row"]/$numberofRecordsPerPage);
         //  echo("<script>console.log('PHP: " . $table  ." $pageno');</script>");
     
-        $pagination = "";
+        $pagination = "<ul class='pagination'>";
     
         if($last != 1){
             if($pageno > 1){
                 $previous = "";
                 $previous = $pageno - 1;
-                $pagination .= "<a href='".$previous."' style='text-decoration:none;color:black;'> Previous </a>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='".$previous."' style='text-decoration:none;color:black;'> Previous </a></li>";
             }
             for($i = $pageno - 5; $i < $pageno; $i++){
                 if($i > 0){
-                    $pagination .= "<a href='".$i."' style='text-decoration:none;'> ".$i." </a>" ;
+                    $pagination .= "<li class='page-item'><a class='page-link' href='".$i."' style='text-decoration:none;'> ".$i." </a></li>" ;
                 }
                 
             }
     
-            $pagination .= "<a href='".$pageno."' style='text-decoration:none;color:black'> $pageno </a>";
+            $pagination .= "<li class='page-item'><a class='page-link' href='".$pageno."' style='text-decoration:none;color:black'> $pageno </a></li>";
     
             for($i=$pageno + 1; $i <= $last; $i++){
-                $pagination .= "<a href='".$i."' style='text-decoration:none;'> ".$i." </a>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='".$i."' style='text-decoration:none;'> ".$i." </a></li>";
                 if($i > $pageno + 4){
                     break;
                 }
             }
             if($last > $pageno){
                 $next = $pageno + 1;
-                $pagination .= "<a href='".$next."' style='text-decoration:none;color:black;'> Next </a>";
+                $pagination .= "<li class='page-item'><a class='page-link' href='".$next."' style='text-decoration:none;color:black;'> Next </a></li></ul>";
             }
         }
     
