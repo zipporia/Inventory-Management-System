@@ -11,10 +11,10 @@ class Manage
     }
 
     public function manageRecordWithPagination($table, $pno){
-        $a = $this->pagination($this->conn, $table, $pno, 3);
+        $a = $this->pagination($this->conn, $table, $pno, 5);
         // echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
         if($table == "categories"){
-            $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ";
+            $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ".$a['limit'];
         }
         
         $result = $this->conn->query($sql) or die($this->conn->error);
@@ -48,30 +48,30 @@ class Manage
             if($pageno > 1){
                 $previous = "";
                 $previous = $pageno - 1;
-                $pagination .= "<li class='page-item'><a class='page-link' href='".$previous."' style='text-decoration:none;color:black;'> Previous </a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' pn='".$previous."' href='#' style='text-decoration:none;color:black;'> Previous </a></li>";
             }
             for($i = $pageno - 5; $i < $pageno; $i++){
                 if($i > 0){
-                    $pagination .= "<li class='page-item'><a class='page-link' href='".$i."' style='text-decoration:none;'> ".$i." </a></li>" ;
+                    $pagination .= "<li class='page-item'><a class='page-link' pn='".$i."' href='#' style='text-decoration:none;'> ".$i." </a></li>" ;
                 }
                 
             }
     
-            $pagination .= "<li class='page-item'><a class='page-link' href='".$pageno."' style='text-decoration:none;color:black'> $pageno </a></li>";
+            $pagination .= "<li class='page-item'><a class='page-link' pn='".$pageno."' href='#' style='text-decoration:none;color:black'> $pageno </a></li>";
     
             for($i=$pageno + 1; $i <= $last; $i++){
-                $pagination .= "<li class='page-item'><a class='page-link' href='".$i."' style='text-decoration:none;'> ".$i." </a></li>";
+                $pagination .= "<li class='page-item'><a class='page-link' pn='".$i."' href='#' style='text-decoration:none;'> ".$i." </a></li>";
                 if($i > $pageno + 4){
                     break;
                 }
             }
             if($last > $pageno){
                 $next = $pageno + 1;
-                $pagination .= "<li class='page-item'><a class='page-link' href='".$next."' style='text-decoration:none;color:black;'> Next </a></li></ul>";
+                $pagination .= "<li class='page-item'><a class='page-link' pn='".$next."' href='#' style='text-decoration:none;color:black;'> Next </a></li></ul>";
             }
         }
     
-        $limit = "LIMIT ".($pageno - 1) * $numberofRecordsPerPage.";".$numberofRecordsPerPage;
+        $limit = "LIMIT ".($pageno - 1) * $numberofRecordsPerPage.",".$numberofRecordsPerPage;
     
         return ["pagination"=>$pagination, "limit"=>$limit];
     }

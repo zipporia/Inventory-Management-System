@@ -75,7 +75,7 @@ if(isset($_POST['added_date']) AND isset($_POST['product_name'])){
 // Manage Category
 if(isset($_POST["manageCategory"])){
     $m = new Manage();
-    $result = $m->manageRecordWithPagination("categories", 1);
+    $result = $m->manageRecordWithPagination("categories", $_POST["pageno"]);
     
     $rows = $result["rows"];
     
