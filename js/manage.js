@@ -22,7 +22,25 @@ $(document).ready(function(){
     $("body").delegate(".del_cat","click",function(){
         var did = $(this).attr("did");
         if(confirm("Are you sure? You want to delete!")){
-            alert("Yes");
+            $.ajax({
+                url: DOMAIN+"/includes/process.php",
+                method: "POST",
+                data: {deleteCategory: 1, id:did},
+                success: function(data){
+                    if(data == "DEPENDENT_CATEGORY"){
+                        alert("Cannot be deleted");
+                    }else if(data == "CATEGORY_DELETED"){
+                        alert("deleted data");
+                        manageCategory(1);
+                    }else if(data == "DELETED"){
+                        alert("deleted data also");
+                    }else{
+                        alert(data);
+                    }
+                    
+                   
+                } // success
+            });
         }else{
             alert("No");
         }
