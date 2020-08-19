@@ -87,7 +87,7 @@ class Manage
                 return "DEPENDENT_CATEGORY";
             }else{
                 $pre_stmt = $this->conn->prepare("DELETE FROM '".$table."' WHERE '".$pk."' = ?");
-                $pre_stmt->bind_param("i", $id);
+                $pre_stmt->bind_param("i",$id);
                 $result = $pre_stmt->execute() or die($this->conn->error);
                 if($result){
                     "CATEGORY_DELETED";
@@ -104,7 +104,7 @@ class Manage
     }
 }
 
-// $obj = new Manage();
+$obj = new Manage();
 // echo "<pre>";
 // print_r($obj->manageRecordWithPagination("categories", 1));
-// echo $obj->deleteRecord("brands", 1);
+echo $obj->deleteRecord("categories", "cid" ,7);
