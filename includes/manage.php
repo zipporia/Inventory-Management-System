@@ -76,8 +76,25 @@ class Manage
         return ["pagination"=>$pagination, "limit"=>$limit];
     }
 
+    public function deleteRecord($table, $id){
+        if($table == "categories"){
+            $pre_stmt = $this->conn->prepare("SELECT '".$id."' FROM categories WHERE parent_cat = ?");
+            $pre_stmt->bind_param("i",$id);
+            $pre_stmt->execute();
+            $result = $pre_stmt->get_result() or die($this->conn->error);
+
+            if($result->num_rows > 0){
+                return "DEPENDENT_CATEGORY";
+            }else{
+                return $table." It can be delete";
+            }
+        }else{
+            return $table." It can be delete";
+        }
+    }
 }
 
-// $obj = new Manage();
+$obj = new Manage();
 // echo "<pre>";
 // print_r($obj->manageRecordWithPagination("categories", 1));
+echo $obj->deleteRecord("categories", 6);
