@@ -94,7 +94,12 @@ class Manage
                 }
             }
         }else{
-            
+            $pre_stmt = $this->conn->prepare("DELETE FROM '".$table."' WHERE '".$pk."' = ?");
+            $pre_stmt->bind_param("i", $id);
+            $result = $pre_stmt->execute() or die($this->conn->error);
+                if($result){
+                    "DELETED";
+                }
         }
     }
 }
