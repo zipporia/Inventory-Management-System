@@ -92,8 +92,8 @@ if(isset($_POST["manageCategory"])){
                     <td><?php echo $row["Parent"] ?></td>
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
                     <td>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                        <a href="#" class="btn btn-info btn-sm">Edit</a>
+                        <a href="#" did="<?php echo $row['p.cid']; ?>" class="btn btn-danger btn-sm del_cat">Delete</a>
+                        <a href="#" eid="<?php echo $row['p.cid']; ?>"  class="btn btn-info btn-sm edit_cat">Edit</a>
                     </td>
                 </tr>
             <?php

@@ -19,4 +19,10 @@ $(document).ready(function(){
         manageCategory(pn);
     });
 
+    $("body").delegate(".del_cat","click",function(){
+        var did = $(this).attr("did");
+        alert(did);
+        console.log(did);
+    });
+
 }); // document ready function
