@@ -21,8 +21,11 @@ $(document).ready(function(){
 
     $("body").delegate(".del_cat","click",function(){
         var did = $(this).attr("did");
-        alert(did);
-        console.log(did);
+        if(confirm("Are you sure? You want to delete!")){
+            alert("Yes");
+        }else{
+            alert("No");
+        }
     });
 
 }); // document ready function
