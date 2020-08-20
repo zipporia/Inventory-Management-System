@@ -101,10 +101,23 @@ class Manage
                     return "DELETED";
                 }
         }
-    }
-}
+    }// function delete record
 
-// $obj = new Manage();
+    public function getSingleRecord($table, $pk, $id){
+        $pre_stmt = $this->conn->prepare("SELECT * FROM ".$table." WHERE ".$pk."= ?");
+        $pre_stmt->bind_param("i", $id);
+        $pre_stmt->execute() or die($this->conn->error);
+        $result = $pre_stmt->get_result();
+        if($result->num_rows == 1){
+            $row = $result->fetch_assoc();
+        }
+        return $row;
+    } // function getSingleRecord
+
+}// Class Manage
+
+$obj = new Manage();
 // echo "<pre>";
 // print_r($obj->manageRecordWithPagination("categories", 1));
 // echo $obj->deleteRecord("categories", "cid" ,3);
+print_r($obj->getSingleRecord("categories", "cid", 1));
