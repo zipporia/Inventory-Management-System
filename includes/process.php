@@ -112,3 +112,10 @@ if(isset($_POST["deleteCategory"])){
     echo $result;
 }
 
+// Update Category
+if(isset($_POST["updateCategory"])){
+    $m = new Manage();
+    $result = $m->getSingleRecord("categories", "cid", $_POST['id']);
+    echo json_encode($result);
+    exit();
+}
