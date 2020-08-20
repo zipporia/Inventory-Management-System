@@ -53,9 +53,10 @@ $(document).ready(function(){
             url: DOMAIN+"/includes/process.php",
             method: "post",
             datatype: 'json',
-            data: {updateCategory:1, id:eid},
+            data: {updateCategory:1,id:eid},
             success: function(data){
                 alert(data);
+                alert(data["category_name"]);
             }
         });
     });

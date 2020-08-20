@@ -37,7 +37,7 @@
     </div>
 
     <?php
-        include_once("template/update_category.php")
+        include_once("./templates/update_category.php");
 
     ?>
 
