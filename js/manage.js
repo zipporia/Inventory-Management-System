@@ -46,4 +46,10 @@ $(document).ready(function(){
         }
     });
 
+    //Update category
+    $("body").delegate(".edit_cat", "click", function(){
+        var eid = $(this).attr("eid");
+        alert(eid);
+    });
+
 }); // document ready function
