@@ -36,4 +36,9 @@
         </table>
     </div>
 
+    <?php
+        include_once("template/update_category.php")
+
+    ?>
+
 <?php include_once 'templates/footer.php'?>

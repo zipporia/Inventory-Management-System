@@ -49,7 +49,15 @@ $(document).ready(function(){
     //Update category
     $("body").delegate(".edit_cat", "click", function(){
         var eid = $(this).attr("eid");
-        alert(eid);
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method: "post",
+            datatype: 'json',
+            data: {updateCategory:1, id:eid},
+            success: function(data){
+                alert(data);
+            }
+        });
     });
 
 }); // document ready function

@@ -105,8 +105,10 @@ if(isset($_POST["manageCategory"])){
     }
 }
 
+// Delete Category
 if(isset($_POST["deleteCategory"])){
     $m = new Manage();
     $result = $m->deleteRecord("categories", "cid", $_POST["id"]);
     echo $result;
 }
+
