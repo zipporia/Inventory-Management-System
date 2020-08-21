@@ -114,6 +114,16 @@ class Manage
         return $row;
     } // function getSingleRecord
 
+
+    public function update_record($table, $where, $fields){
+        $sql = "";
+        $condition = "";
+        foreach($where as $key => $value){
+            $condition .= $key . "='" .$value . "' AND ";
+        }
+    }
+
+
 }// Class Manage
 
 //  $obj = new Manage();
