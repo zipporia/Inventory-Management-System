@@ -129,3 +129,4 @@ if(isset($_POST['update_category'])){
     $result = $m->update_record("categories", ["cid"=>$id],["parent_cat"=>$parent, "category_name"=>$name,"status"=>1]);
     echo $result;
 }
+

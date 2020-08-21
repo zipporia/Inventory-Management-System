@@ -63,7 +63,7 @@
                         <h4 class="card-title">Brands</h4>
                         <p class="card-text">Here you can manage your categories and you can add new parent and sub categories</p>
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#brandModal">Add</a>
-                        <a href="#" class="btn btn-primary">Manage</a>
+                        <a href="manage_brand.php" class="btn btn-primary">Manage</a>
                     </div>
                 </div>
             </div>
