@@ -70,7 +70,7 @@ $(document).ready(function(){
             success: function(data){
                 data = JSON.parse(data)
                 $("#cid").val(data["cid"]);
-                $("#category_name").val(data["category_name"]);
+                $("#update_category").val(data["category_name"]);
                 $("#parent_cat").val(data["parent_cat"]);
             }
         });
