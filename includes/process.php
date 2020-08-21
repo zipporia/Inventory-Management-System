@@ -119,3 +119,13 @@ if(isset($_POST["updateCategory"])){
     echo json_encode($result);
     exit();
 }
+
+// update record
+if(isset($_POST['update_category'])){
+    $m = new Manage();
+    $id = $_POST['cid'];
+    $name = $_POST['update_category'];
+    $parent = $_POST['parent_cat'];
+    $result = $m->update_record("categories", ["cid"=>$id],["parent_cat"=>$parent, "category_name"=>$name,"status"=>1]);
+    echo $result;
+}

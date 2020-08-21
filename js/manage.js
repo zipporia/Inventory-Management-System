@@ -86,7 +86,7 @@ $(document).ready(function(){
                 method: "POST",
                 data: $("#update_category_form").serialize(),
                 success: function(data){
-                    alert(data)
+                    window.location.href= "";
                 }
             });
         }
