@@ -121,6 +121,17 @@ class Manage
         foreach($where as $key => $value){
             $condition .= $key . "='" .$value . "' AND ";
         }
+        $condition = substr($condition, 0, -5);
+
+        foreach($fields as $key => $value){
+            $sql .= $key . "='" .$value."', ";
+        }
+
+        $sql = substr($sql, 0, -2);
+        $sql= "UPDATE ".$table. " SET " .$sql. " WHERE " .$condition;
+        if(mysqli_query($this->conn,$sql)){
+            return "UPDATED";
+        }
     }
 
 
@@ -131,3 +142,4 @@ class Manage
 // print_r($obj->manageRecordWithPagination("categories", 1));
 // echo $obj->deleteRecord("categories", "cid" ,3);
 //  print_r($obj->getSingleRecord("categories", "cid", 1));
+// echo $obj->update_record("categories", ["cid"=>1],["parent_cat"=>0, "category_name"=>"Electro","status"=>1]);
