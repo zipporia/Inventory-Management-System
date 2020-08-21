@@ -93,7 +93,7 @@ if(isset($_POST["manageCategory"])){
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
                     <td>
                         <a href="#" did="<?php echo $row['cid']; ?>" class="btn btn-danger btn-sm del_cat">Delete</a>
-                        <a href="#" eid="<?php echo $row['cid']; ?>"  class="btn btn-info btn-sm edit_cat">Edit</a>
+                        <a href="#" eid="<?php echo $row['cid']; ?>" class="btn btn-info btn-sm edit_cat" data-toggle="modal" data-target="#update_form_category">Edit</a>
                     </td>
                 </tr>
             <?php

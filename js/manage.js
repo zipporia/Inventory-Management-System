@@ -46,6 +46,19 @@ $(document).ready(function(){
         }
     });
 
+    fetch_category();
+    function fetch_category(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method : "POST",
+            data: {getCategory: 1},
+            success: function(data){
+                var root = "<option value='0'> SELECT </option>";
+                $("#parent_cat").html(root+data);
+            }
+        });
+    } // fetch category
+
     //Update category
     $("body").delegate(".edit_cat", "click", function(){
         var eid = $(this).attr("eid");
@@ -56,10 +69,9 @@ $(document).ready(function(){
             data: {updateCategory:1,id:eid},
             success: function(data){
                 data = JSON.parse(data)
-               alert( data);
-               alert(data.category_name)
-               console.log(data.category_name)
-              
+                $("#cid").val(data["cid"]);
+                $("#category_name").val(data["category_name"]);
+                $("#parent_cat").val(data["parent_cat"]);
             }
         });
     });

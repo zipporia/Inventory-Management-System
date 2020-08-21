@@ -1,5 +1,5 @@
  <!-- Modal -->
- <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="update_form_category" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -13,7 +13,7 @@
             <form id="update_category_form" onsubmit="return false">
                 <div class="form-group">
                     <label>Category Name</label>
-                   
+                    <input type="hidden" name="cid" id="cid" value=""/>
                     <input type="text" class="form-control" id="category_name" name="category_name"  placeholder="Enter Category Name">
                     <small id="cat_error" class="form-text text-muted"></small>
                 </div>
