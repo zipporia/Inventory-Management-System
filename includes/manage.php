@@ -116,8 +116,8 @@ class Manage
 
 }// Class Manage
 
-// $obj = new Manage();
+//  $obj = new Manage();
 // echo "<pre>";
 // print_r($obj->manageRecordWithPagination("categories", 1));
 // echo $obj->deleteRecord("categories", "cid" ,3);
-// print_r($obj->getSingleRecord("categories", "cid", 1));
+//  print_r($obj->getSingleRecord("categories", "cid", 1));

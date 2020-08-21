@@ -50,13 +50,16 @@ $(document).ready(function(){
     $("body").delegate(".edit_cat", "click", function(){
         var eid = $(this).attr("eid");
         $.ajax({
-            url: DOMAIN+"/includes/process.php",
-            method: "post",
-            datatype: 'json',
+            url: DOMAIN+"includes/process.php",
+            method: "POST",
+            datatype: "JSON",
             data: {updateCategory:1,id:eid},
             success: function(data){
-                alert(data);
-                alert(data["category_name"]);
+                data = JSON.parse(data)
+               alert( data);
+               alert(data.category_name)
+               console.log(data.category_name)
+              
             }
         });
     });
