@@ -92,5 +92,18 @@ $(document).ready(function(){
         }
     });
 
-   
+    /// Brand ===================================
+    manageBrand(1);
+    function manageBrand(pn){
+        $.ajax({
+            url: DOMAIN+"includes/process.php",
+            method: "POST",
+            data: {manageBrand: 1, pageno: pn},
+            success: function(data){
+                $("#get_brand").html(data);
+               
+            } // success
+        });
+    }
+
 }); // document ready function
