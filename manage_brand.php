@@ -36,7 +36,7 @@
     </div>
 
     <?php
-        include_once("./templates/update_category.php");
+        include_once("templates/update_brand.php");
 
     ?>
 

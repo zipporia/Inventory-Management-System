@@ -150,8 +150,8 @@ if(isset($_POST["manageBrand"])){
                     <td><?php echo $row["brand_name"] ?></td>
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
                     <td>
-                        <a href="#" did="<?php echo $row['cid']; ?>" class="btn btn-danger btn-sm del_brand">Delete</a>
-                        <a href="#" eid="<?php echo $row['cid']; ?>" class="btn btn-info btn-sm edit_brand" data-toggle="modal" data-target="#update_form_category">Edit</a>
+                        <a href="#" did="<?php echo $row['bid']; ?>" class="btn btn-danger btn-sm del_brand">Delete</a>
+                        <a href="#" eid="<?php echo $row['bid']; ?>" class="btn btn-info btn-sm edit_brand" data-toggle="modal" data-target="#form_brand">Edit</a>
                     </td>
                 </tr>
             <?php
@@ -161,4 +161,28 @@ if(isset($_POST["manageBrand"])){
         <?php
         exit();
     }
+}
+
+// Delete Category
+if(isset($_POST["deleteBrand"])){
+    $m = new Manage();
+    $result = $m->deleteRecord("brands", "bid", $_POST["id"]);
+    echo $result;
+}
+
+// Update Brand
+if(isset($_POST["updateBrand"])){
+    $m = new Manage();
+    $result = $m->getSingleRecord("brands","bid", $_POST['id']);
+    echo json_encode($result);
+    exit();
+}
+
+// update record
+if(isset($_POST['update_brand'])){
+    $m = new Manage();
+    $id = $_POST['bid'];
+    $name = $_POST['update_brand'];
+    $result = $m->update_record("brands", ["bid"=>$id],["brand_name"=>$name,"status"=>1]);
+    echo $result;
 }

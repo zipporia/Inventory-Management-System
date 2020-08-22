@@ -106,4 +106,62 @@ $(document).ready(function(){
         });
     }
 
+    $("body").delegate(".page-link","click", function(){
+        var pn = $(this).attr("pn");
+        manageBrand(pn);
+    });
+
+    $("body").delegate(".del_brand","click",function(){
+        var did = $(this).attr("did");
+        if(confirm("Are you sure? You want to delete!")){
+            $.ajax({
+                url: DOMAIN+"/includes/process.php",
+                method: "POST",
+                data: {deleteBrand: 1, id:did},
+                success: function(data){
+                    if(data == "DELETED"){
+                        alert("Brand deleted");
+                        manageBrand(1);
+                    }else{
+                        alert(data);
+                    }
+                } // success
+            });
+        }
+    });
+
+     //Update Brand
+     $("body").delegate(".edit_brand", "click", function(){
+        var eid = $(this).attr("eid");
+        $.ajax({
+            url: DOMAIN+"includes/process.php",
+            method: "POST",
+            datatype: "JSON",
+            data: {updateBrand:1,id:eid},
+            success: function(data){
+                data = JSON.parse(data)
+                $("#bid").val(data["bid"]);
+                $("#update_brand").val(data["brand_name"]);
+            }
+        });
+    });
+
+    $("#update_brand_form").on("submit", function(){
+        if($("#update_brand").val() == ""){
+            $("#update_brand").addClass("border-danger");
+            $("#brand_error").html("<span class='text-danger'>Please Enter Brand Name</span>");
+        }else{
+            $.ajax({
+                url: DOMAIN+"includes/process.php",
+                method: "POST",
+                data: $("#update_brand_form").serialize(),
+                success: function(data){
+                    alert("data = " + data);
+                    console.log(data)
+                    window.location.href= "";
+                }
+            });
+        }
+    });
+
 }); // document ready function
