@@ -130,3 +130,35 @@ if(isset($_POST['update_category'])){
     echo $result;
 }
 
+// Brand ==============================================
+// Manage Brand
+if(isset($_POST["manageBrand"])){
+    $m = new Manage();
+    $result = $m->manageRecordWithPagination("brands", $_POST["pageno"]);
+    
+    $rows = $result["rows"];
+    
+    $pagination = $result["pagination"];
+    
+    if(count($rows) > 0){
+        $n =  (($_POST["pageno"] - 1) * 5) + 1;
+        // echo("<script>console.log('PHP: " . $n . "');</script>");    
+        foreach($rows as $row){
+            ?>
+                <tr>
+                    <td><?php echo $n++ ?></td>
+                    <td><?php echo $row["brand_name"] ?></td>
+                    <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
+                    <td>
+                        <a href="#" did="<?php echo $row['cid']; ?>" class="btn btn-danger btn-sm del_brand">Delete</a>
+                        <a href="#" eid="<?php echo $row['cid']; ?>" class="btn btn-info btn-sm edit_brand" data-toggle="modal" data-target="#update_form_category">Edit</a>
+                    </td>
+                </tr>
+            <?php
+        }
+        ?>
+            <tr><td colspan="5"><?php echo $pagination; ?></td></tr>
+        <?php
+        exit();
+    }
+}
