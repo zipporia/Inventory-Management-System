@@ -14,10 +14,10 @@ class Manage
         $a = $this->pagination($this->conn, $table, $pno, 5);
         // echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
         if($table == "categories"){
-            $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.cid, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ".$a['limit'];
+            $sql = "SELECT p.cid, p.category_name as Category, c.category_name as Parent, p.cid, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ".$a['limit'];
         }
         else if($table == "products"){
-            $sql = "SELECT p.product_name, c.category_name, b.brand_name, p.product_price, p.product_stock, p.added_date, p.p_status 
+            $sql = "SELECT p.pid, p.product_name, c.category_name, b.brand_name, p.product_price, p.product_stock, p.added_date, p.p_status 
             FROM products p, brands b, categories c 
             WHERE p.pid = b.bid AND p.pcid = c.cid ".$a["limit"];
         }

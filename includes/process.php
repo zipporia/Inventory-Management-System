@@ -186,3 +186,42 @@ if(isset($_POST['update_brand'])){
     $result = $m->update_record("brands", ["bid"=>$id],["brand_name"=>$name,"status"=>1]);
     echo $result;
 }
+
+//========== Product ===========================================
+
+if(isset($_POST["manageProduct"])){
+    $m = new Manage();
+    $result = $m->manageRecordWithPagination("products", $_POST["pageno"]);
+    
+    $rows = $result["rows"];
+    
+    $pagination = $result["pagination"];
+    
+    if(count($rows) > 0){
+        $n =  (($_POST["pageno"] - 1) * 5) + 1;
+        // echo("<script>console.log('PHP: " . $n . "');</script>");    
+        foreach($rows as $row){
+            ?>
+                <tr>
+                    <td><?php echo $n++ ?></td>
+                    <td><?php echo $row["product_name"] ?></td>
+                    <td><?php echo $row["category_name"] ?></td>
+                    <td><?php echo $row["brand_name"] ?></td>
+                    <td><?php echo $row["product_price"] ?></td>
+                    <td><?php echo $row["product_stock"] ?></td>
+                    <td><?php echo $row["added_date"] ?></td>
+                    <td><?php echo $row["p_status"] ?></td>
+                    <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
+                    <td>
+                        <a href="#" did="<?php echo $row['pid']; ?>" class="btn btn-danger btn-sm del_product">Delete</a>
+                        <a href="#" eid="<?php echo $row['pid']; ?>" class="btn btn-info btn-sm edit_product" data-toggle="modal" data-target="#form_product">Edit</a>
+                    </td>
+                </tr>
+            <?php
+        }
+        ?>
+            <tr><td colspan="5"><?php echo $pagination; ?></td></tr>
+        <?php
+        exit();
+    }
+}
