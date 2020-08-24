@@ -111,6 +111,7 @@ $(document).ready(function(){
         manageBrand(pn);
     });
 
+    // Delete Brand
     $("body").delegate(".del_brand","click",function(){
         var did = $(this).attr("did");
         if(confirm("Are you sure? You want to delete!")){
@@ -182,6 +183,26 @@ $(document).ready(function(){
     $("body").delegate(".page-link","click", function(){
         var pn = $(this).attr("pn");
         manageProduct(pn);
+    });
+
+    // Delete Brand
+    $("body").delegate(".del_product","click",function(){
+        var did = $(this).attr("did");
+        if(confirm("Are you sure? You want to delete!")){
+            $.ajax({
+                url: DOMAIN+"/includes/process.php",
+                method: "POST",
+                data: {deleteProduct: 1, id:did},
+                success: function(data){
+                    if(data == "DELETED"){
+                        alert("Product deleted");
+                        manageProduct(1);
+                    }else{
+                        alert(data);
+                    }
+                } // success
+            });
+        }
     });
 
 }); // document ready function

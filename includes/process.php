@@ -163,7 +163,7 @@ if(isset($_POST["manageBrand"])){
     }
 }
 
-// Delete Category
+// Delete Brand
 if(isset($_POST["deleteBrand"])){
     $m = new Manage();
     $result = $m->deleteRecord("brands", "bid", $_POST["id"]);
@@ -223,4 +223,11 @@ if(isset($_POST["manageProduct"])){
         <?php
         exit();
     }
+}
+
+// Delete Brand
+if(isset($_POST["deleteProduct"])){
+    $m = new Manage();
+    $result = $m->deleteRecord("products", "pid", $_POST["id"]);
+    echo $result;
 }
