@@ -213,7 +213,7 @@ if(isset($_POST["manageProduct"])){
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
                     <td>
                         <a href="#" did="<?php echo $row['pid']; ?>" class="btn btn-danger btn-sm del_product">Delete</a>
-                        <a href="#" eid="<?php echo $row['pid']; ?>" class="btn btn-info btn-sm edit_product" data-toggle="modal" data-target="#form_product">Edit</a>
+                        <a href="#" eid="<?php echo $row['pid']; ?>" class="btn btn-info btn-sm edit_product" data-toggle="modal" data-target="#form_products">Edit</a>
                     </td>
                 </tr>
             <?php
@@ -229,5 +229,22 @@ if(isset($_POST["manageProduct"])){
 if(isset($_POST["deleteProduct"])){
     $m = new Manage();
     $result = $m->deleteRecord("products", "pid", $_POST["id"]);
+    echo $result;
+}
+
+// Update Brand
+if(isset($_POST["updateProduct"])){
+    $m = new Manage();
+    $result = $m->getSingleRecord("products","pid", $_POST['id']);
+    echo json_encode($result);
+    exit();
+}
+
+// update record
+if(isset($_POST['update_product'])){
+    $m = new Manage();
+    $id = $_POST['pid'];
+    $name = $_POST['update_product'];
+    $result = $m->update_record("products", []);
     echo $result;
 }

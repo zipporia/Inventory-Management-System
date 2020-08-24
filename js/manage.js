@@ -54,10 +54,25 @@ $(document).ready(function(){
             data: {getCategory: 1},
             success: function(data){
                 var root = "<option value='0'> SELECT </option>";
+                var choose = "<option value=''> SELECT Category </option>";
                 $("#parent_cat").html(root+data);
+                $("#select_cat").html(choose+data);
             }
         });
     } // fetch category
+
+    fetch_brand();
+    function fetch_brand(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method : "POST",
+            data: {getBrand: 1},
+            success: function(data){
+                var choose = "<option value=''> Select Brand </option>";
+                $("#select_brand").html(choose+data);
+            }
+        });
+    } // fetch brand
 
     //Update category
     $("body").delegate(".edit_cat", "click", function(){
@@ -185,7 +200,7 @@ $(document).ready(function(){
         manageProduct(pn);
     });
 
-    // Delete Brand
+    // Delete Product
     $("body").delegate(".del_product","click",function(){
         var did = $(this).attr("did");
         if(confirm("Are you sure? You want to delete!")){
@@ -203,6 +218,26 @@ $(document).ready(function(){
                 } // success
             });
         }
+    });
+
+    //Update Product
+    $("body").delegate(".edit_product", "click", function(){
+        var eid = $(this).attr("eid");
+        $.ajax({
+            url: DOMAIN+"includes/process.php",
+            method: "POST",
+            datatype: "JSON",
+            data: {updateProduct:1,id:eid},
+            success: function(data){
+                data = JSON.parse(data)
+                $("#pid").val(data["pid"]);
+                $("#update_product").val(data["product_name"]);
+                $("#select_cat").val(data["pcid"]);
+                $("#select_brand").val(data["pbid"]);
+                $("#product_price").val(data["product_price"]);
+                $("#product_qty").val(data["product_stock"]);
+            }
+        });
     });
 
 }); // document ready function
