@@ -15,7 +15,11 @@ class Manage
         // echo("<script>console.log('PHP: " . $a["limit"]  ."');</script>");
         if($table == "categories"){
             $sql = "SELECT p.category_name as Category, c.category_name as Parent, p.cid, p.status FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cid ".$a['limit'];
-        }else{
+        }
+        else if($table == "products"){
+
+        }
+        else{
             $sql = "SELECT * FROM " .$table." ".$a["limit"];
         }
         
