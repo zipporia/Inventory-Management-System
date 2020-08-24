@@ -210,7 +210,6 @@ if(isset($_POST["manageProduct"])){
                     <td><?php echo $row["product_price"] ?></td>
                     <td><?php echo $row["product_stock"] ?></td>
                     <td><?php echo $row["added_date"] ?></td>
-                    <td><?php echo $row["p_status"] ?></td>
                     <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
                     <td>
                         <a href="#" did="<?php echo $row['pid']; ?>" class="btn btn-danger btn-sm del_product">Delete</a>
