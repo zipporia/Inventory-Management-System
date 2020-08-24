@@ -164,4 +164,24 @@ $(document).ready(function(){
         }
     });
 
+    // ============ Product =====================================
+
+    manageProduct(1);
+    function manageProduct(pn){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method: "POST",
+            data: {manageProduct: 1, pageno: pn},
+            success: function(data){
+                $("#get_product").html(data);
+               
+            } // success
+        });
+    }
+
+    $("body").delegate(".page-link","click", function(){
+        var pn = $(this).attr("pn");
+        manageProduct(pn);
+    });
+
 }); // document ready function
