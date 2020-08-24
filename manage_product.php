@@ -13,13 +13,17 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Product</th>
                     <th>Category</th>
-                    <th>Parent</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Added Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="get_category">
+            <tbody id="get_product">
                 <!---
                 <tr>
                     <td>1</td>
