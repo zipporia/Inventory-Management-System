@@ -230,7 +230,6 @@ $(document).ready(function(){
             data: {updateProduct:1,id:eid},
             success: function(data){
                 data = JSON.parse(data)
-                alert(data);
                 $("#pid").val(data["pid"]);
                 $("#update_product").val(data["product_name"]);
                 $("#select_cat").val(data["pcid"]);
@@ -247,7 +246,7 @@ $(document).ready(function(){
             method: "POST",
             data: $("#update_product_form").serialize(),
             success: function(data){
-               alert(data)
+                window.location.href= "";
             } // success
         });
     });
