@@ -230,6 +230,7 @@ $(document).ready(function(){
             data: {updateProduct:1,id:eid},
             success: function(data){
                 data = JSON.parse(data)
+                alert(data);
                 $("#pid").val(data["pid"]);
                 $("#update_product").val(data["product_name"]);
                 $("#select_cat").val(data["pcid"]);
@@ -237,6 +238,17 @@ $(document).ready(function(){
                 $("#product_price").val(data["product_price"]);
                 $("#product_qty").val(data["product_stock"]);
             }
+        });
+    });
+
+    $("#update_product_form").on("submit", function(){
+        $.ajax({
+            url: DOMAIN+"/includes/process.php",
+            method: "POST",
+            data: $("#update_product_form").serialize(),
+            success: function(data){
+               alert(data)
+            } // success
         });
     });
 

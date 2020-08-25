@@ -3,7 +3,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -43,7 +43,7 @@
                         <label>Quantity</label>
                         <input type="text" class="form-control" id="product_qty" name="product_qty" placeholder="Enter Product Quantity">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Product</button>
+                    <button type="submit" class="btn btn-primary">Update Product</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </form>
             </div>
