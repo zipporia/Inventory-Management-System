@@ -162,6 +162,7 @@ $(document).ready(function(){
         });
     });
 
+
     $("#update_brand_form").on("submit", function(){
         if($("#update_brand").val() == ""){
             $("#update_brand").addClass("border-danger");
@@ -173,7 +174,6 @@ $(document).ready(function(){
                 data: $("#update_brand_form").serialize(),
                 success: function(data){
                     alert("data = " + data);
-                    console.log(data)
                     window.location.href= "";
                 }
             });
