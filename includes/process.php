@@ -253,3 +253,7 @@ if(isset($_POST['update_product'])){
     $result = $m->update_record("products", ["pid"=>$id],["pcid"=>$cat,"pbid"=>$brand, "product_name"=>$name, "product_price"=>$price, "product_stock"=>$qty, "added_date"=>$date]);
     echo $result;
 }
+
+if(isset($_POST['getNewOrderItem'])){
+    
+}

@@ -68,43 +68,43 @@
                             <div class="form-group row">
                                 <label for="sub_total" class="col-sm-3 col-form-label" align="right">Sub Total</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="sub_total" id="sub_total" class="form-control form-control-sm">
+                                    <input type="text" name="sub_total" id="sub_total" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="gst" class="col-sm-3 col-form-label" align="right">GST (18%)</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="gst" id="gst" class="form-control form-control-sm">
+                                    <input type="text" name="gst" id="gst" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="discount" class="col-sm-3 col-form-label" align="right">Discount</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="discount" id="discount" class="form-control form-control-sm">
+                                    <input type="text" name="discount" id="discount" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="net_total" class="col-sm-3 col-form-label" align="right">Net Total</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="net_total" id="net_total" class="form-control form-control-sm">
+                                    <input type="text" name="net_total" id="net_total" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="paid" class="col-sm-3 col-form-label" align="right">Paid</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="paid" id="paid" class="form-control form-control-sm">
+                                    <input type="text" name="paid" id="paid" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="due" class="col-sm-3 col-form-label" align="right">Due</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="due" id="due" class="form-control form-control-sm">
+                                    <input type="text" name="due" id="due" class="form-control form-control-sm" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="payment_type" class="col-sm-3 col-form-label" align="right">Payment Method</label>
                                 <div class="col-sm-6">
-                                    <select name="payment_type" id="payment_type" class="form-control form-control-sm">
+                                    <select name="payment_type" id="payment_type" class="form-control form-control-sm" required>
                                         <option value="">Cash</option>
                                         <option value="">Card</option>
                                         <option value="">Draft</option>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./includes/style.css">
     <script src="js/main.js"></script>
     <script src="js/manage.js"></script>
+    <script src="js/order.js"></script>
 </head>
 <body>   
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #002db3;">
