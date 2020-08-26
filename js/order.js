@@ -1,9 +1,11 @@
 $(document).ready(function(){
   var DOMAIN = "http://localhost/Inventory-Management-System/";
 
+  addNewRow();
+  
   $("#add").click(function(){
     addNewRow();
-  })
+  });
 
   function addNewRow(){
     $.ajax({
@@ -11,7 +13,7 @@ $(document).ready(function(){
       method: "POST",
       data: {getNewOrderItem:1},
       success: function(data){
-        alert(data);
+        $("#invoice_item").html(data)
       }
     });
   }
