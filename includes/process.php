@@ -263,7 +263,9 @@ if(isset($_POST['getNewOrderItem'])){
     <td>
         <select name="pid[]" class="form-control form-control-sm" required>
             <?php
-            
+                foreach($rows as $row){
+                    ?><option value="<?php echo $row['pid']; ?>"> <?php echo $row["product_name"]; ?> </option> <?php
+                }
             ?>
             <option>Washing Machine</option>
         </select>
@@ -271,7 +273,8 @@ if(isset($_POST['getNewOrderItem'])){
     <td> <input name="tqty[]" type="text" class="form-control form-control-sm" readonly> </td>
     <td> <input name="qty[]" type="text" class="form-control form-control-sm" required> </td>
     <td> <input name="price[]" type="text" class="form-control form-control-sm" readonly> </td>
-    <td>Rs.1540</td>
+    <td>Rs.<span>0</span></td>
     </tr>
     <?php
+    exit();
 }

@@ -16,7 +16,7 @@
                         <h4>New Orders</h4>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form onsubmit="return false">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" align="right">Order Date</label>
                                 <div class="col-sm-6">

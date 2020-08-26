@@ -1,6 +1,9 @@
 $(document).ready(function(){
   var DOMAIN = "http://localhost/Inventory-Management-System/";
 
+  $("#add").click(function(){
+    addNewRow();
+  })
 
   function addNewRow(){
     $.ajax({
