@@ -49,4 +49,6 @@ CREATE TABLE users (
  ON p.parent_cat=c.cid
 
  
- SELECT p.product_name, c.category_name, b.brand_name, p.product_price, p.product_stock, p.added_date, p.p_status FROM products p, brands b, categories c WHERE p.pid = b.bid AND p.pcid = c.cid
+ SELECT p.product_name, c.category_name, b.brand_name, p.product_price, p.product_stock, p.added_date, p.p_status 
+ FROM products p, brands b, categories c 
+ WHERE p.pid = b.bid AND p.pcid = c.cid
