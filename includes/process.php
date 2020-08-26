@@ -255,5 +255,23 @@ if(isset($_POST['update_product'])){
 }
 
 if(isset($_POST['getNewOrderItem'])){
-    
+    $obj = new DBOperation();
+    $rows = $obj->getAllRecord("products");
+    ?>
+    <tr>
+    <td><b id="number">1</b></td>
+    <td>
+        <select name="pid[]" class="form-control form-control-sm" required>
+            <?php
+            
+            ?>
+            <option>Washing Machine</option>
+        </select>
+    </td>
+    <td> <input name="tqty[]" type="text" class="form-control form-control-sm" readonly> </td>
+    <td> <input name="qty[]" type="text" class="form-control form-control-sm" required> </td>
+    <td> <input name="price[]" type="text" class="form-control form-control-sm" readonly> </td>
+    <td>Rs.1540</td>
+    </tr>
+    <?php
 }

@@ -42,9 +42,10 @@
                                                 <th style="text-align:center;">Price</th>
                                                 <th>Total</th>
                                             </tr>
+                                        
                                         </thead>
                                     <tbody id="invoice_item">
-                                    <tr>
+                                <!--<tr>
                                     <td><b id="number">1</b></td>
                                     <td>
                                         <select name="pid[]" class="form-control form-control-sm" required>
@@ -55,7 +56,7 @@
                                     <td> <input name="qty[]" type="text" class="form-control form-control-sm" required> </td>
                                     <td> <input name="price[]" type="text" class="form-control form-control-sm" readonly> </td>
                                     <td>Rs.1540</td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
                                     </table>
                                     <center style="padding:10px;">
