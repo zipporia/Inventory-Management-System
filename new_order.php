@@ -32,6 +32,32 @@
                             <div class="card" style="box-shadow: 0 0 15px 0 lightgrey;">
                                 <div class="card-body">
                                     <h3>Make a order list</h3>
+                                    <table align="center" style="width:800px;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th style="text-align:center;">Item Name</th>
+                                                <th style="text-align:center;">Total Quantity</th>
+                                                <th style="text-align:center;">Quantity</th>
+                                                <th style="text-align:center;">Price</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody id="invoice_item">
+                                    <tr>
+                                    <td><b id="number">1</b></td>
+                                    <td>
+                                        <select name="pid[]" class="form-control form-control-sm">
+                                            <option>Washing Machine</option>
+                                        </select>
+                                    </td>
+                                    <td> <input name="tqty[]" type="text" class="form-control form-control-sm"> </td>
+                                    <td> <input name="qty[]" type="text" class="form-control form-control-sm"> </td>
+                                    <td> <input name="price[]" type="text" class="form-control form-control-sm" readonly> </td>
+                                    <td>Rs.1540</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </form>
