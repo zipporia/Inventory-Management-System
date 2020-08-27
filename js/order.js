@@ -25,7 +25,7 @@ $(document).ready(function(){
   $("#invoice_item").delegate(".pid", "change", function(){
     var pid = $(this).val();
     var tr = $(this).parent().parent();
-    $(".overlay").show();
+    // $(".overlay").show();
     $.ajax({
       url: DOMAIN+"includes/process.php",
       method: "POST",
