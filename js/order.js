@@ -26,6 +26,14 @@ $(document).ready(function(){
     var pid = $(this).val();
     var tr = $(this).parent().parent();
     $(".overlay").show();
+    $.ajax({
+      url: DOMAIN+"/includes/process.php",
+      method: "POST",
+      data: {getPriceAndAty:1, id: pid},
+      success: function(data){
+        console.log(data);
+      }
+    })
   })
 
 }); // document ready function
