@@ -5,8 +5,10 @@
     }
 ?>
 
+<div class="overlay"><div class="loader"></div></div>
 <!-- Navbar-->
 <?php include_once 'templates/header.php'?>
+
     <br>
     <div class="container">
         <div class="row">

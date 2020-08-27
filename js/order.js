@@ -24,7 +24,8 @@ $(document).ready(function(){
 
   $("#invoice_item").delegate(".pid", "change", function(){
     var pid = $(this).val();
-    alert(pid);
+    var tr = $(this).parent().parent();
+    $(".overlay").show();
   })
 
 }); // document ready function
