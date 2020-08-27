@@ -279,3 +279,11 @@ if(isset($_POST['getNewOrderItem'])){
     <?php
     exit();
 }
+
+// get price and qty of one item
+if(isset($_POST['getPriceAndQty'])){
+    $m = new Manage();
+    $result = $m->getSingleRecord("products", "pid", $_POST['id']);
+    echo json_encode($result);
+    exit();
+}

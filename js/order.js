@@ -27,11 +27,16 @@ $(document).ready(function(){
     var tr = $(this).parent().parent();
     $(".overlay").show();
     $.ajax({
-      url: DOMAIN+"/includes/process.php",
+      url: DOMAIN+"includes/process.php",
       method: "POST",
-      data: {getPriceAndAty:1, id: pid},
+      dataType: "json",
+      data: {getPriceAndQty:1,id:pid},
       success: function(data){
-        console.log(data);
+        tr.find(".tqty").val(data['product_stock']);
+        tr.find(".pro_name").val(data["product_name"]);
+        tr.find(".qty").val(1);
+        tr.find(".price").val(data['product_price']);
+        tr.find(".amt").html( tr.find(".qty").val() * tr.find(".price").val());
       }
     })
   })
