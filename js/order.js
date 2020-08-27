@@ -13,9 +13,13 @@ $(document).ready(function(){
       method: "POST",
       data: {getNewOrderItem:1},
       success: function(data){
-        $("#invoice_item").html(data)
+        $("#invoice_item").append(data)
       }
     });
   }
+
+  $("#remove").click(function(){
+    $("#invoice_item").children("tr:last").remove();
+  })
 
 }); // document ready function

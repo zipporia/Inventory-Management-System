@@ -267,7 +267,6 @@ if(isset($_POST['getNewOrderItem'])){
                     ?><option value="<?php echo $row['pid']; ?>"> <?php echo $row["product_name"]; ?> </option> <?php
                 }
             ?>
-            <option>Washing Machine</option>
         </select>
     </td>
     <td> <input name="tqty[]" type="text" class="form-control form-control-sm tqty" readonly> </td>
