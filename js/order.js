@@ -22,4 +22,9 @@ $(document).ready(function(){
     $("#invoice_item").children("tr:last").remove();
   })
 
+  $("#invoice_item").delegate(".pid", "change", function(){
+    var pid = $(this).val();
+    alert(pid);
+  })
+
 }); // document ready function

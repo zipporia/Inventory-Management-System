@@ -262,6 +262,7 @@ if(isset($_POST['getNewOrderItem'])){
     <td><b id="number">1</b></td>
     <td>
         <select name="pid[]" class="form-control form-control-sm pid" required>
+            <option value="">Select Product</option>
             <?php
                 foreach($rows as $row){
                     ?><option value="<?php echo $row['pid']; ?>"> <?php echo $row["product_name"]; ?> </option> <?php
