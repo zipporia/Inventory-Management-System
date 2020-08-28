@@ -14,6 +14,10 @@ $(document).ready(function(){
       data: {getNewOrderItem:1},
       success: function(data){
         $("#invoice_item").append(data)
+        var n = 0;
+        $(".number").each(function(){
+          $(this).html(++n);
+        })
       }
     });
   }
