@@ -45,4 +45,17 @@ $(document).ready(function(){
     })
   })
 
+  $("#invoice_item").delegate(".qty", "keyup", function(){
+    var qty = $(this);
+    var tr = $(this).parent().parent();
+    if(isNaN(qty.val())){
+      alert("Please enter a valid quantity");
+      qty.val(1);
+    }else{
+      if(qty.val() > tr.find(".tqty").val()) {
+        alert("sorry ! This much of quantity is not available");
+      }
+    }
+  })
+
 }); // document ready function
