@@ -50,10 +50,13 @@ $(document).ready(function(){
     var tr = $(this).parent().parent();
     if(isNaN(qty.val())){
       alert("Please enter a valid quantity");
-      qty.val(1);
+      qty.val(2);
     }else{
-      if(qty.val() > tr.find(".tqty").val()) {
+      if((qty.val()-0) > (tr.find(".tqty").val())-0) {
         alert("sorry ! This much of quantity is not available");
+      }else{
+        tr.find(".amt").html((qty.val()-0) * (tr.find(".price").val()-0));
+       
       }
     }
   })
