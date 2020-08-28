@@ -41,6 +41,7 @@ $(document).ready(function(){
         tr.find(".qty").val(1);
         tr.find(".price").val(data['product_price']);
         tr.find(".amt").html( tr.find(".qty").val() * tr.find(".price").val());
+        calculate();
       }
     })
   })
@@ -63,13 +64,19 @@ $(document).ready(function(){
 
   function calculate(){
     var sub_total = 0;
+    var gst = 0;
+    var net_total = 0;
     $(".amt").each(function(){
       sub_total = sub_total + ($(this).html() * 1);
     })
+    gst = 0.18 * sub_total;
+    net_total = gst * sub_total;
+
+    $("#gst").val(gst);
     $("#sub_total").val(sub_total)
-    // $("#gst")
+    
     // $("#discount")
-    // $("#net_total")
+    $("#net_total").val(net_total)
     // $("#paid")
     // $("#due")
   }
