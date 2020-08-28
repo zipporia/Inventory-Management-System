@@ -56,9 +56,22 @@ $(document).ready(function(){
         alert("sorry ! This much of quantity is not available");
       }else{
         tr.find(".amt").html((qty.val()-0) * (tr.find(".price").val()-0));
-       
+        calculate();
       }
     }
-  })
+  });
+
+  function calculate(){
+    var sub_total = 0;
+    $(".amt").each(function(){
+      sub_total = sub_total + ($(this).html() * 1);
+    })
+    $("#sub_total").val(sub_total)
+    // $("#gst")
+    // $("#discount")
+    // $("#net_total")
+    // $("#paid")
+    // $("#due")
+  }
 
 }); // document ready function
