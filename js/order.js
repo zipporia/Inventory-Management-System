@@ -102,4 +102,17 @@ $(document).ready(function(){
     calculate(discount, paid);
   })
 
+  /* Order Accepting */
+
+  $("#order_form").click(function(){
+    $.ajax({
+      url: DOMAIN+"include/process.php",
+      method: "POST",
+      data: $("#get_order_data").serialize(),
+      success: function(data){
+        alert(data);
+      }
+    })
+  }); // order_form
+
 }); // document ready function
