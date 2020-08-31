@@ -53,6 +53,15 @@ CREATE TABLE invoice(
   payment_type TEXT(20) NOT NULL
 );
 
+CREATE TABLE invoice_details(
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  invoice_no INT(11) NOT NULL,
+  product_name VARCHAR(100) NOT NULL,
+  price DOUBLE NOT NULL,
+  qty INT(11) NOT NULL,
+  FOREIGN KEY (invoice_no) REFERENCES invoice(invoice_no)
+);
+
  SELECT 
  p.category_name as Parent, 
  c.category_name as Child, 
