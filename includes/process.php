@@ -297,4 +297,14 @@ if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
     $ar_qty = $_POST['qty'];
     $ar_price = $_POST['price'];
     $ar_pro_name = $_POST['pro_name'];
+
+    $sub_total = $_POST['sub_total'];
+    $gst = $_POST['gst'];
+    $discount = $_POST['discount'];
+    $net_total = $_POST['net_total'];
+    $paid = $_POST['paid'];
+    $due = $_POST['due'];
+    $payment_type = $_POST['payment_type'];
+
+    
 }
