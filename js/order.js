@@ -24,6 +24,7 @@ $(document).ready(function(){
 
   $("#remove").click(function(){
     $("#invoice_item").children("tr:last").remove();
+    calculate(0,0);
   })
 
   $("#invoice_item").delegate(".pid", "change", function(){
