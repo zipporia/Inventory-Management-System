@@ -291,4 +291,10 @@ if(isset($_POST['getPriceAndQty'])){
 if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
     $orderdate = $_POST['order_date'];
     $cust_name = $_post['cust_name'];
+
+    //Now getting array from order_form
+    $ar_tqty = $_POST['tqty'];
+    $ar_qty = $_POST['qty'];
+    $ar_price = $_POST['price'];
+    $ar_pro_name = $_POST['pro_name'];
 }
