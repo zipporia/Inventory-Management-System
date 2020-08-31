@@ -287,3 +287,8 @@ if(isset($_POST['getPriceAndQty'])){
     echo json_encode($result);
     exit();
 }
+
+if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
+    $orderdate = $_POST['order_date'];
+    $cust_name = $_post['cust_name'];
+}
