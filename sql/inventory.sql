@@ -40,6 +40,19 @@ CREATE TABLE users (
  );
 
 
+CREATE TABLE invoice(
+  invoice_no INT(11) PRIMARY KEY AUTO_INCREMENT,
+  customer_name VARCHAR(100) NOT NULL,
+  order_date DATE NOT NULL,
+  sub_total DOUBLE NOT NULL,
+  gst DOUBLE NOT NULL,
+  discount DOUBLE NOT NULL,
+  net_total DOUBLE NOT NULL,
+  paid DOUBLE NOT NULL,
+  due DOUBLE NOT NULL,
+  payment_type TEXT(20) NOT NULL
+);
+
  SELECT 
  p.category_name as Parent, 
  c.category_name as Child, 
