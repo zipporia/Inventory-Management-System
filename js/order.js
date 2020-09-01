@@ -106,7 +106,7 @@ $(document).ready(function(){
 
   $("#order_form").click(function(){
     $.ajax({
-      url: DOMAIN+"include/process.php",
+      url: DOMAIN+"includes/process.php",
       method: "POST",
       data: $("#get_order_data").serialize(),
       success: function(data){
