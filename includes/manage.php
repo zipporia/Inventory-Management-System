@@ -142,6 +142,15 @@ class Manage
         }
     }
 
+    public function storeCustomerOrderInvoice($orderdate, $cust_name, $ar_tqty, $ar_qty, $ar_price, $ar_pro_name, $sub_total, $gst, $discount, $net_total, $paid, $due, $payment_type){
+        $pre_stmt = $this->conn->prepare("INSERT INTO `invoice`(`customer_name`, `order_date`, `sub_total`, `gst`, `discount`, `net_total`, `paid`, `due`, `payment_type`) 
+        VALUES (?,?,?,?,?,?,?,?,?)");
+        $pre_stmt->bind_param("ssdddddds", $cust_name, $orderdate, $sub_total, $gst, $discount, $net_total, $paid, $due, $payment_type);
+        $pre_stmt->execute() or die($this->conn->error);
+        $result = $pre_stmt->get_result();
+        $invoice_no = $result->insert_id
+    }
+
 
 }// Class Manage
 
