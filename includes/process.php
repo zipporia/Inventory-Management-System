@@ -289,7 +289,7 @@ if(isset($_POST['getPriceAndQty'])){
 }
 
 if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
-    
+
     $orderdate = $_POST['order_date'];
     $cust_name = $_post['cust_name'];
 
@@ -307,5 +307,9 @@ if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
     $due = $_POST['due'];
     $payment_type = $_POST['payment_type'];
 
-    
+    $m = new Manage():
+    echo $result = $m->storeCustomerOrderInvoice($orderdate, $cust_name, $ar_tqty, $ar_qty, $ar_price, $ar_pro_name, $sub_total, $gst, $discount, $net_total, $paid, $due, $payment_type);
+
+
+
 }
