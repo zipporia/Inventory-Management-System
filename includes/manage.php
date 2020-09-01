@@ -156,6 +156,8 @@ class Manage
                 $insert_product->bind_param("isdd", $invoice_no, $ar_pro_name[$i], $ar_price[$i], $ar_qty[$i]);
                 $insert_product->execute() or die($this->conn->error);
             }
+
+            return "ORDER_COMPLETED";
         }
     }
 }// Class Manage
