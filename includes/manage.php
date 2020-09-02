@@ -150,6 +150,12 @@ class Manage
         $invoice_no = $pre_stmt->insert_id;
         if($invoice_no != null){
             for($i = 0; $i < count($ar_price); $i++){
+                //Here we are finding the remaining quantity after giving customer
+                $rem_qty = $ar_tqty[$i] = $ar_qty[$i];
+                if($rem_qty < 0){
+                    return "ORDER_FAIL_TO_COMPLETE";
+                }
+
                 $insert_product = $this->conn->prepare("INSERT INTO `invoice_details`( `invoice_no`, `product_name`, `price`, `qty`) 
                 VALUES (?,?,?,?)");
                 $insert_product->bind_param("isdd", $invoice_no, $ar_pro_name[$i], $ar_price[$i], $ar_qty[$i]);
