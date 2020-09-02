@@ -273,7 +273,7 @@ if(isset($_POST['getNewOrderItem'])){
         <td> <input name="tqty[]" type="text" class="form-control form-control-sm tqty" readonly> </td>
         <td> <input name="qty[]" type="text" class="form-control form-control-sm qty" required> </td>
         <td> <input name="price[]" type="text" class="form-control form-control-sm price" readonly> </td>
-        <span> <input name="pro_name[]" type="hidden" class="form-control form-control-sm pro_name"> </span>
+        <input name="pro_name[]" type="hidden" class="form-control form-control-sm pro_name">
         <td>Rs.<span class="amt">0</span></td>
     </tr>
     <?php
@@ -291,8 +291,7 @@ if(isset($_POST['getPriceAndQty'])){
 if(isset($_POST['order_date']) AND isset($_POST['cust_name'])){
 
     $orderdate = $_POST['order_date'];
-    $cust_name = $_post['cust_name'];
-
+    $cust_name = $_POST['cust_name'];
     //Now getting array from order_form
     $ar_tqty = $_POST['tqty'];
     $ar_qty = $_POST['qty'];
