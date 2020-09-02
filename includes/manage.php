@@ -154,6 +154,9 @@ class Manage
                 $rem_qty = $ar_tqty[$i] = $ar_qty[$i];
                 if($rem_qty < 0){
                     return "ORDER_FAIL_TO_COMPLETE";
+                }else{
+                    //Update Product Stock
+                    $this->conn->query("UPDATE products_stock = '$rem_qty' WHERE product_name = ".$ar_pro_name[$i]) or die($this->conn->error);
                 }
 
                 $insert_product = $this->conn->prepare("INSERT INTO `invoice_details`( `invoice_no`, `product_name`, `price`, `qty`) 
