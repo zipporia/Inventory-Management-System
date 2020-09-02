@@ -108,10 +108,10 @@
                                 <label for="payment_type" class="col-sm-3 col-form-label" align="right">Payment Method</label>
                                 <div class="col-sm-6">
                                     <select name="payment_type" id="payment_type" class="form-control form-control-sm" required>
-                                        <option value="">Cash</option>
-                                        <option value="">Card</option>
-                                        <option value="">Draft</option>
-                                        <option value="">Cheque</option>
+                                        <option>Cash</option>
+                                        <option>Card</option>
+                                        <option>Draft</option>
+                                        <option>Cheque</option>
                                     </select>
                                 </div>
                             </div>
