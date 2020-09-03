@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
   include_once("../fpdf/fpdf.php");
 
   if($_GET['order_date']){
@@ -48,6 +50,8 @@
     $pdf->Cell(50, 10, ": ".$_GET['payment_type'], 0, 1);
 
     $pdf->Cell(180, 10, "Signature", 0, 0, "R");
+
+    $pdf->Output("../PDF_INVOICE/PDF_INVOICE_".$_SESSION["userid"].uniqid().".pdf", "F");
 
     $pdf->Output();
   }
