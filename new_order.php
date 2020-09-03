@@ -71,13 +71,13 @@
                             <div class="form-group row">
                                 <label for="sub_total" class="col-sm-3 col-form-label" align="right">Sub Total</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="sub_total" id="sub_total" class="form-control form-control-sm" required>
+                                    <input type="text" name="sub_total" id="sub_total" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="gst" class="col-sm-3 col-form-label" align="right">GST (18%)</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="gst" id="gst" class="form-control form-control-sm" required>
+                                    <input type="text" name="gst" id="gst" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -89,7 +89,7 @@
                             <div class="form-group row">
                                 <label for="net_total" class="col-sm-3 col-form-label" align="right">Net Total</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="net_total" id="net_total" class="form-control form-control-sm" required>
+                                    <input type="text" name="net_total" id="net_total" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -101,7 +101,7 @@
                             <div class="form-group row">
                                 <label for="due" class="col-sm-3 col-form-label" align="right">Due</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="due" id="due" class="form-control form-control-sm" required>
+                                    <input type="text" name="due" id="due" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">

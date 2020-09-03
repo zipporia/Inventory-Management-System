@@ -107,16 +107,23 @@ $(document).ready(function(){
   $("#order_form").click(function(){
 
     var invoice = $("#get_order_data").serialize();
-
-    $.ajax({
+    if($("#cust_name").val() === ""){
+      alert("Please Enter customer Name");
+    }else if($("#paid").val() === ""){
+      alert("Please Enter paid amount");
+    }else{
+      $.ajax({
       url: DOMAIN+"includes/process.php",
       method: "POST",
       data: $("#get_order_data").serialize(),
       success: function(data){
         $("#get_order_data").trigger("reset");
         alert(data);
-      }
-    })
+        }
+      });
+    }
+
+    
   }); // order_form
 
 }); // document ready function
