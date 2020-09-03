@@ -113,17 +113,24 @@ $(document).ready(function(){
       alert("Please Enter paid amount");
     }else{
       $.ajax({
-      url: DOMAIN+"includes/process.php",
-      method: "POST",
-      data: $("#get_order_data").serialize(),
-      success: function(data){
-        $("#get_order_data").trigger("reset");
-        alert(data);
-        }
+        url: DOMAIN+"includes/process.php",
+        method: "POST",
+        data: $("#get_order_data").serialize(),
+        success: function(data){
+          if(data === "ORDER_COMPLETED"){
+            $("#get_order_data").trigger("reset");
+            if(confirm("Do you want to print invoice?")){
+              
+            }
+          }else{
+              alert("Error");
+            }
+
+
+        }// success
       }); // ajax
     }
 
-    
   }); // order_form
 
 }); // document ready function
