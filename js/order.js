@@ -120,7 +120,7 @@ $(document).ready(function(){
         $("#get_order_data").trigger("reset");
         alert(data);
         }
-      });
+      }); // ajax
     }
 
     
