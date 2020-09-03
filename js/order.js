@@ -118,9 +118,11 @@ $(document).ready(function(){
         data: $("#get_order_data").serialize(),
         success: function(data){
           if(data === "ORDER_COMPLETED"){
+
             $("#get_order_data").trigger("reset");
+            
             if(confirm("Do you want to print invoice?")){
-              
+              window.location.href = DOMAIN+"includes/invoice_bill.php?"+invoice;
             }
           }else{
               alert("Error");
