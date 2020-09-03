@@ -128,8 +128,6 @@ $(document).ready(function(){
           else{
             alert("Error");
           }
-
-
         }// success
       }); // ajax
     }
