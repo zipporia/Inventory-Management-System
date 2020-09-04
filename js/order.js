@@ -117,17 +117,16 @@ $(document).ready(function(){
         method: "POST",
         data: $("#get_order_data").serialize(),
         success: function(data){
-          if(data === "ORDER_COMPLETED"){
-
+          if(data < 0){
+            alert("Error");
+          }else{
             $("#get_order_data").trigger("reset");
 
             if(confirm("Do you want to print invoice?")){
-              window.location.href = DOMAIN+"includes/invoice_bill.php?"+invoice;
+              window.location.href = DOMAIN+"includes/invoice_bill.php?invoice_no="+data+"&"+invoice;
             }
           }
-          else{
-            alert("Error");
-          }
+
         }// success
       }); // ajax
     }

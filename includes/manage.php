@@ -166,7 +166,7 @@ class Manage
                 $insert_product->execute() or die($this->conn->error);
             }
 
-            return "ORDER_COMPLETED";
+            return $invoice_no;
         }
     }
 }// Class Manage
