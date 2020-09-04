@@ -4,7 +4,7 @@ session_start();
 
   include_once("../fpdf/fpdf.php");
 
-  if($_GET['order_date']){
+  if($_GET['order_date'] && $_GET['invoice_no']){
     $pdf = new FPDF();
     $pdf->AddPage();
 
