@@ -51,7 +51,7 @@ session_start();
 
     $pdf->Cell(180, 10, "Signature", 0, 0, "R");
 
-    $pdf->Output("../PDF_INVOICE/PDF_INVOICE_".$_SESSION["userid"].uniqid().".pdf", "F");
+    $pdf->Output("../PDF_INVOICE/PDF_INVOICE_".$_GET['invoice_no'].".pdf", "F");
 
     $pdf->Output();
   }
